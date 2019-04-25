@@ -24,7 +24,7 @@ export default new Vuex.Store({
   },
   actions: {
     fetchEvents (context) {
-      if (webpackHotUpdate) { // eslint-disable-line no-undef
+      if (webpackHotUpdate !== undefined) { // eslint-disable-line no-undef
         return context.commit('addEvents', FIXTURE_EVENTS)
       } else {
         return fetch(`${ENDPOINT}/events`)
