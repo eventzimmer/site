@@ -27,7 +27,13 @@ export default new Vuex.Store({
       if (typeof webpackHotUpdate !== 'undefined') { // eslint-disable-line no-undef
         return context.commit('addEvents', FIXTURE_EVENTS)
       } else {
-        return fetch(`${ENDPOINT}/events`)
+        return fetch(`${ENDPOINT}/events`, {
+          headers: {
+            Latitude: context.state.location.latitude,
+            Longitude: context.state.location.longitude
+          }
+        })
+          .then((response) => response.json())
           .then((events) => context.commit('addEvents', events))
           .catch((err) => console.error(err))
       }
