@@ -1,0 +1,8 @@
+dist: xenial
+language: node_js
+node_js: node
+
+script:
+  - npm run lint
+  - npm audit
+  - npm run test:unit
