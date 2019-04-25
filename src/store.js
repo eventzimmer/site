@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import { getMonth } from 'date-fns'
+
 Vue.use(Vuex)
 
 const ENDPOINT = (process.env.VUE_APP_ENDPOINT !== undefined) ? process.env.VUE_APP_ENDPOINT : 'http://localhost:8080/v1'
@@ -23,12 +25,30 @@ export default new Vuex.Store({
   actions: {
     fetchEvents (context) {
       if (webpackHotUpdate) { // eslint-disable-line no-undef
-        context.commit('addEvents', FIXTURE_EVENTS)
+        return context.commit('addEvents', FIXTURE_EVENTS)
       } else {
-        fetch(`${ENDPOINT}/events`)
+        return fetch(`${ENDPOINT}/events`)
           .then((events) => context.commit('addEvents', events))
           .catch((err) => console.error(err))
       }
+    }
+  },
+  getters: {
+    events (state) {
+      let currentMonth = getMonth(new Date())
+      let events = state.events.map((e) => {
+        e.starts_at = new Date(e.starts_at)
+        return e
+      })
+      return events.filter((e) => getMonth(e.starts_at) === currentMonth).sort((a, b) => {
+        if (a.starts_at < b.starts_at) {
+          return -1
+        } else if (a.starts_at > b.starts_at) {
+          return 1
+        } else {
+          return 0
+        }
+      })
     }
   }
 })
