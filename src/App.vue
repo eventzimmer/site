@@ -8,7 +8,7 @@
         <events></events>
       </div>
     </main>
-    <footer class="footer mt-auto py-3 fixed-bottom">
+    <footer class="footer mt-auto py-3">
       <hr />
       <div class="container">
         <span class="text-muted">Impressum | Datenschutzerklärung</span>
