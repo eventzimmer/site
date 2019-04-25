@@ -4,7 +4,8 @@
       <div class="container w-auto">
         <img alt="eventzimmer logo" src="./assets/icon-192x192.png" class="logo mt-3">
         <h3 class="mt-5">eventzimmer</h3>
-        <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+        <p class="lead">Veranstaltungen im {{ month() }}</p>
+        <events></events>
       </div>
     </main>
     <footer class="footer mt-auto py-3 fixed-bottom">
@@ -17,8 +18,20 @@
 </template>
 
 <script>
+import Events from '@/components/Events'
+import { format } from 'date-fns'
+import de from 'date-fns/locale/de'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Events
+  },
+  methods: {
+    month () {
+      return format(new Date(), 'MMMM', { locale: de })
+    }
+  }
 }
 </script>
 
@@ -26,10 +39,6 @@ export default {
 html {
   background-color: rgba(245,245,245, 0.6);
   /*background-image: linear-gradient(to bottom, #358fa1, #74a6bd, #a8bdd3, #d3d7e4, #f5f5f5) !important;*/
-}
-
-main {
-  text-align: center;
 }
 
 .logo {

@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const ENDPOINT = (process.env.VUE_APP_ENDPOINT !== undefined) ? process.env.VUE_APP_ENDPOINT : 'http://localhost:8080/v1'
+const FIXTURE_EVENTS = require('@/assets/events.json')
 
 export default new Vuex.Store({
   state: {
@@ -21,9 +22,13 @@ export default new Vuex.Store({
   },
   actions: {
     fetchEvents (context) {
-      fetch(`${ENDPOINT}/events`)
-        .then((events) => context.commit('addEvents', events))
-        .catch((err) => console.error(err))
+      if (webpackHotUpdate) { // eslint-disable-line no-undef
+        context.commit('addEvents', FIXTURE_EVENTS)
+      } else {
+        fetch(`${ENDPOINT}/events`)
+          .then((events) => context.commit('addEvents', events))
+          .catch((err) => console.error(err))
+      }
     }
   }
 })

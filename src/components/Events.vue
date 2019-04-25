@@ -1,5 +1,9 @@
 <template>
-  <div></div>
+  <div>
+    <ul v-for="event in $store.state.events" v-bind:key="event.url">
+      <li>{{ event.name }}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
