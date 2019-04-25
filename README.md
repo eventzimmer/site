@@ -1,4 +1,13 @@
 # site
+[![Build Status](https://travis-ci.org/eventzimmer/site.svg?branch=master)](https://travis-ci.org/eventzimmer/site)
+
+The site for the eventzimmer event service.
+
+Based on:
+
+- [Vue](http://vuejs.org)
+- [Bootstrap](https://getbootstrap.com/)
+- [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
 ## Project setup
 ```
