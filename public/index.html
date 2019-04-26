@@ -7,12 +7,41 @@
     <link rel="shortcut icon" type="image/png" href="<%= BASE_URL %>favicon.ico"/>
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>eventzimmer</title>
+
+    <style type="text/css">
+      html {
+        background-color: rgba(245,245,245, 0.6);
+        /*background-image: linear-gradient(to bottom, #358fa1, #74a6bd, #a8bdd3, #d3d7e4, #f5f5f5) !important;*/
+      }
+
+      body {
+        background-color: transparent !important;
+      }
+      
+      .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
   </head>
-  <body>
+  <body class="d-flex flex-column h-100">
     <noscript>
       <strong>We're sorry but eventzimmer doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+
+    <main role="main" class="flex-shrink-0 w-auto">
+      <div class="container w-auto">
+        <img alt="eventzimmer logo" src="<%= BASE_URL %>img/icons/icon-192x192.png" class="logo mt-3">
+        <div id="app"></div>
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3">
+      <hr />
+      <div class="container">
+        <span class="text-muted">Impressum | Datenschutzerklärung</span>
+      </div>
+    </footer>
     <!-- built files will be auto injected -->
   </body>
 </html>
