@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { getMonth } from 'date-fns'
+import { getMonth, addMonths } from 'date-fns'
 
 Vue.use(Vuex)
 
@@ -40,13 +40,20 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    events (state) {
+    nextMonthEvents (state, getters) {
+      let nextMonth = getMonth(addMonths(new Date(), 1))
+      return getters.events.filter((e) => getMonth(e.starts_at) === nextMonth)
+    },
+    currentMonthEvents (state, getters) {
       let currentMonth = getMonth(new Date())
+      return getters.events.filter((e) => getMonth(e.starts_at) === currentMonth)
+    },
+    events (state) {
       let events = state.events.map((e) => {
         e.starts_at = new Date(e.starts_at)
         return e
       })
-      return events.filter((e) => getMonth(e.starts_at) === currentMonth).sort((a, b) => {
+      return events.sort((a, b) => {
         if (a.starts_at < b.starts_at) {
           return -1
         } else if (a.starts_at > b.starts_at) {
