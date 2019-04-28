@@ -7,7 +7,7 @@
         <truncate :text="event.description" clamp="Mehr" less="Weniger!"></truncate>
       </div>
     </div>
-    <p class="lead mt-1" v-if="$store.getters.nextMonthEvents.length">Veranstaltungen im {{ nextMonth() }}</p>
+    <p class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">Veranstaltungen im {{ nextMonth() }}</p>
     <div class="card mb-1" v-for="event in $store.getters.nextMonthEvents" v-bind:key="event.url">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-muted" @click="openEventInTab(event.url)">{{ event.name }} am {{ formatEventDate(event.starts_at) }} ({{ event.location.name }})</h6>
