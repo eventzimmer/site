@@ -15,6 +15,9 @@
       </div>
     </div>
   </div>
+  <div v-else>
+    <p class="lead">Die Seite schläft gerade noch 💤. Gib uns einen Moment um sie aufzuwecken.</p>
+  </div>
 </template>
 
 <script>
