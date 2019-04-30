@@ -1,5 +1,5 @@
 # site
-[![Build Status](https://travis-ci.org/eventzimmer/site.svg?branch=master)](https://travis-ci.org/eventzimmer/site)
+[![Build Status](https://travis-ci.org/eventzimmer/site.svg?branch=master)](https://travis-ci.org/eventzimmer/site)  [![Netlify Status](https://api.netlify.com/api/v1/badges/8e79b99b-f520-4f98-88a4-d59faff69c4c/deploy-status)](https://app.netlify.com/sites/tender-boyd-d507c4/deploys)
 
 The site for the eventzimmer event service.
 
