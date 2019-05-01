@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 2019-05-01
+### Added
+- Loading text
+- Add Sentry error reporting
+
+### Changed
+- Skip waiting for workers
+
 ## [0.0.1] - 2019-04-27
 ### Added
 - Make it possible to list events from API or fixtures
