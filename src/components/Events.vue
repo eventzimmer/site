@@ -1,17 +1,17 @@
 <template>
   <div v-if="!loading">
-    <p class="lead" v-if="$store.getters.currentMonthEvents.length">Veranstaltungen im {{ currentMonth() }}</p>
+    <p class="lead" v-if="$store.getters.currentMonthEvents.length">Veranstaltungen im {{ formatMonth(currentMonth()) }}</p>
     <div class="card mb-1" v-for="event in $store.getters.currentMonthEvents" v-bind:key="event.url">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-muted" @click="openEventInTab(event.url)">{{ event.name }} am {{ formatEventDate(event.starts_at) }} ({{ event.location.name }})</h6>
-        <truncate :text="event.description" clamp="Mehr" less="Weniger!"></truncate>
+        <truncate :text="htmlDecode(event.description)" clamp="Mehr" less="Weniger!"></truncate>
       </div>
     </div>
-    <p class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">Veranstaltungen im {{ nextMonth() }}</p>
+    <p class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">Veranstaltungen im {{ formatMonth(nextMonth()) }}</p>
     <div class="card mb-1" v-for="event in $store.getters.nextMonthEvents" v-bind:key="event.url">
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-muted" @click="openEventInTab(event.url)">{{ event.name }} am {{ formatEventDate(event.starts_at) }} ({{ event.location.name }})</h6>
-        <truncate :text="event.description" clamp="Mehr" less="Weniger!"></truncate>
+        <truncate :text="htmlDecode(event.description)" clamp="Mehr" less="Weniger!"></truncate>
       </div>
     </div>
   </div>
@@ -42,14 +42,17 @@ export default {
     })
   },
   methods: {
+    htmlDecode (value) {
+      return $('<div/>').html(value).text() // eslint-disable-line no-undef
+    },
     formatMonth (date) {
       return format(date, 'MMMM', { locale: de })
     },
     nextMonth () {
-      return this.formatMonth(addMonths(new Date(), 1))
+      return addMonths(new Date(), 1)
     },
     currentMonth () {
-      return this.formatMonth(new Date())
+      return new Date()
     },
     openEventInTab (url) {
       window.open(url, '_blank')
