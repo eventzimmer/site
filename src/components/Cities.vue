@@ -26,6 +26,16 @@ export default {
           name: 'Reutlingen',
           latitude: 48.4919508,
           longitude: 9.2114144
+        },
+        {
+          name: 'Stuttgart',
+          latitude: 48.7784485,
+          longitude: 9.1800132
+        },
+        {
+          name: 'Balingen',
+          latitude: 48.2737512,
+          longitude: 8.8557862
         }
       ]
     }
