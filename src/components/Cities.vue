@@ -45,7 +45,7 @@ export default {
       let location = this.cities.find((c) => c.name === cityName)
       this.$store.commit('changeLocation', location)
       this.$store.dispatch('fetchEvents')
-        .then((msg) => console.debug(msg))
+        .then(() => console.debug(`Fetched events for city ${cityName}`))
     }
   }
 }
