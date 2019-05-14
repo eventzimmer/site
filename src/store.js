@@ -20,12 +20,15 @@ export default new Vuex.Store({
   mutations: {
     addEvents (state, events) {
       state.events = events
+    },
+    changeLocation (state, location) {
+      state.location = location
     }
   },
   actions: {
     fetchEvents (context) {
       if (typeof webpackHotUpdate !== 'undefined') { // eslint-disable-line no-undef
-        return context.commit('addEvents', FIXTURE_EVENTS)
+        return Promise.resolve(context.commit('addEvents', FIXTURE_EVENTS))
       } else {
         return fetch(`${ENDPOINT}/events`, {
           headers: {
