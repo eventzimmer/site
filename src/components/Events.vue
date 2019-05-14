@@ -2,7 +2,7 @@
   <div v-if="!loading">
     <p class="lead" v-if="$store.getters.currentMonthEvents.length">Veranstaltungen im {{ formatMonth(currentMonth()) }}</p>
     <div class="card mb-1" v-for="event in $store.getters.currentMonthEvents" v-bind:key="event.url">
-      <img class="card-img-top" :src="event.images[0]" v-if="event.images.length">
+      <img class="card-img-top" :src="event.images[0]" v-if="event.images !== null">
       <div class="card-body">
         <a :href="event.url" class="card-link" target="_blank" rel="noopener"><h6 class="card-subtitle mb-2 text-muted">{{ event.name }}
           <span class="badge badge-pill badge-secondary ml-1">{{ distanceInWordsToNow(event.starts_at) }}</span>
