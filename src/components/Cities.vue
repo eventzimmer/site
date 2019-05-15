@@ -24,9 +24,9 @@ export default {
           longitude: 9.05556
         },
         {
-          name: 'Reutlingen',
-          latitude: 48.4919508,
-          longitude: 9.2114144
+          name: 'Kirchheim unter Teck',
+          latitude: 48.6480545,
+          longitude: 9.4510227
         },
         {
           name: 'Stuttgart',
