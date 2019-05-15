@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { getMonth, addMonths } from 'date-fns'
+import { getMonth, setMonth, addMonths } from 'date-fns'
 
 Vue.use(Vuex)
 
@@ -20,12 +20,22 @@ export default new Vuex.Store({
   mutations: {
     addEvents (state, events) {
       state.events = events
+    },
+    changeLocation (state, location) {
+      state.location = location
     }
   },
   actions: {
     fetchEvents (context) {
       if (typeof webpackHotUpdate !== 'undefined') { // eslint-disable-line no-undef
-        return context.commit('addEvents', FIXTURE_EVENTS)
+        let currentMonth = getMonth(new Date())
+        let updatedFixtures = FIXTURE_EVENTS.map((e) => {
+          e.starts_at = new Date(e.starts_at)
+          e.starts_at = setMonth(e.starts_at, currentMonth)
+          e.starts_at = e.starts_at.toISOString()
+          return e
+        })
+        return Promise.resolve(context.commit('addEvents', updatedFixtures))
       } else {
         return fetch(`${ENDPOINT}/events`, {
           headers: {
@@ -35,7 +45,9 @@ export default new Vuex.Store({
         })
           .then((response) => response.json())
           .then((events) => context.commit('addEvents', events))
-          .catch((err) => console.error(err))
+          .catch((err) => {
+            throw err
+          })
       }
     }
   },
