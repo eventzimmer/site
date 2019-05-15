@@ -1,9 +1,9 @@
 <template>
-  <div class="row">
+  <div class="row mb-1 mt-1">
     <div class="col-sm"></div>
     <div class="col-sm"></div>
     <div class="col-sm-2">
-      <select class="custom-select" v-model="city" id="inlineFormCustomSelect">
+      <select class="custom-select" v-model="city" id="inlineFormCustomSelect" :disabled="loading">
         <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
       </select>
     </div>
@@ -15,6 +15,7 @@ export default {
   name: 'Cities',
   data () {
     return {
+      loading: false,
       city: 'Tübingen',
       cities: [
         {
@@ -41,11 +42,18 @@ export default {
     }
   },
   watch: {
-    city (cityName) {
-      let location = this.cities.find((c) => c.name === cityName)
-      this.$store.commit('changeLocation', location)
-      this.$store.dispatch('fetchEvents')
-        .then(() => console.debug(`Fetched events for city ${cityName}`))
+    city: function (cityName) {
+      let vm = this
+      let location = vm.cities.find((c) => c.name === cityName)
+      vm.loading = true
+      vm.$store.commit('changeLocation', location)
+      vm.$store.dispatch('fetchEvents')
+        .then(() => {
+          vm.loading = false
+        }).catch((err) => {
+          console.error(err)
+          vm.loading = false
+        })
     }
   }
 }

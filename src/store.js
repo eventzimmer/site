@@ -35,7 +35,6 @@ export default new Vuex.Store({
           e.starts_at = e.starts_at.toISOString()
           return e
         })
-        console.log(updatedFixtures)
         return Promise.resolve(context.commit('addEvents', updatedFixtures))
       } else {
         return fetch(`${ENDPOINT}/events`, {
@@ -46,7 +45,9 @@ export default new Vuex.Store({
         })
           .then((response) => response.json())
           .then((events) => context.commit('addEvents', events))
-          .catch((err) => console.error(err))
+          .catch((err) => {
+            throw err
+          })
       }
     }
   },
