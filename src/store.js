@@ -57,8 +57,9 @@ export default new Vuex.Store({
       return getters.events.filter((e) => getMonth(e.starts_at) === nextMonth)
     },
     currentMonthEvents (state, getters) {
-      let currentMonth = getMonth(new Date())
-      return getters.events.filter((e) => getMonth(e.starts_at) === currentMonth)
+      let today = new Date()
+      let currentMonth = getMonth(today)
+      return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (e.starts_at >= today))
     },
     events (state) {
       let events = state.events.map((e) => {
