@@ -13,7 +13,10 @@
     <p class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">Veranstaltungen im {{ formatMonth(nextMonth()) }}</p>
     <div class="card mb-1" v-for="event in $store.getters.nextMonthEvents" v-bind:key="event.url">
       <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted" @click="openEventInTab(event.url)">{{ event.name }} am {{ formatEventDate(event.starts_at) }} ({{ event.location.name }})</h6>
+        <h6 class="card-subtitle mb-2 text-muted" @click="openEventInTab(event.url)">{{ event.name }}
+          <span class="badge badge-pill badge-secondary ml-1">{{ formatEventDate(event.starts_at) }}</span>
+          <span class="badge badge-pill badge-secondary ml-1">{{ event.location.name }}</span>
+        </h6>
         <truncate :text="htmlDecode(event.description)" clamp="Mehr" less="Weniger!"></truncate>
       </div>
     </div>
