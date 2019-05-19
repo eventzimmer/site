@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { getMonth, setMonth, addMonths, getDay, addDays } from 'date-fns'
+import { getMonth, setMonth, addMonths, getDay, addDays, getDate } from 'date-fns'
 
 Vue.use(Vuex)
 
@@ -61,9 +61,9 @@ export default new Vuex.Store({
     },
     currentMonthEvents (state, getters) {
       let today = new Date()
-      let currentDay = getDay(today)
+      let currentDay = getDate(today)
       let currentMonth = getMonth(today)
-      return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDay(e.starts_at) >= currentDay))
+      return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay))
     },
     events (state) {
       let events = state.events.map((e) => {
