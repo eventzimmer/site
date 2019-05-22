@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Decode html containing description
 - Only list events from the current day on
 - Use badges for date and location name
+- Remove unused bootstrap JS and use font awesome minified bundle
 
 ### Removed
 - Removed Sentry because of privacy

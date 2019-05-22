@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { getMonth, setMonth, addMonths, getDay, addDays, getDate } from 'date-fns'
+import { getMonth, setMonth, addMonths, addDays, getDate } from 'date-fns'
 
 Vue.use(Vuex)
 
@@ -29,7 +29,7 @@ export default new Vuex.Store({
     fetchEvents (context) {
       if (typeof webpackHotUpdate !== 'undefined') { // eslint-disable-line no-undef
         let today = new Date()
-        let currentDay = getDay(today)
+        let currentDay = getDate(today)
         let currentMonth = getMonth(today)
         let updatedFixtures = FIXTURE_EVENTS.map((e) => {
           e.starts_at = new Date(e.starts_at)
