@@ -1,12 +1,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://eventzimmer.de</loc>
+		<changefreq>hourly</changefreq>
+		<priority>1</priority>
 	</url>
 	<url>
 		<loc>https://eventzimmer.de/impress.html</loc>
+		<changefreq>monthly</changefreq>
 	</url>
 	<url>
 		<loc>https://eventzimmer.de/privacy.html</loc>
+		<changefreq>monthly</changefreq>
 	</url>
 </urlset>
-
