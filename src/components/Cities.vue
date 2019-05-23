@@ -3,7 +3,8 @@
     <div class="col-sm"></div>
     <div class="col-sm"></div>
     <div class="col-sm-2">
-      <select class="custom-select" v-model="city" id="inlineFormCustomSelect" :disabled="loading">
+      <select class="custom-select" v-model="city" id="citySelect" :disabled="loading">
+        <label for="citySelect">Städte</label>
         <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
       </select>
     </div>
