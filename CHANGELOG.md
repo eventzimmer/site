@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Only list events from the current day on
 - Use badges for date and location name
 - Remove unused bootstrap JS and use font awesome minified bundle
+- Make all card titles links
+- Change footer link color to be more accessible
+- Add label for city select
+- Add titles for impress and privacy
 
 ### Removed
 - Removed Sentry because of privacy
