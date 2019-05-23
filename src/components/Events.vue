@@ -3,20 +3,20 @@
     <p class="lead" v-if="$store.getters.currentMonthEvents.length">Veranstaltungen im {{ formatMonth(currentMonth()) }}</p>
     <div class="card mb-1" v-for="event in $store.getters.currentMonthEvents" v-bind:key="event.url">
       <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted" @click="openEventInTab(event.url)">{{ event.name }}
+        <a :href="event.url" class="card-link" target="_blank"><h6 class="card-subtitle mb-2 text-muted">{{ event.name }}
           <span class="badge badge-pill badge-secondary ml-1">{{ formatEventDate(event.starts_at) }}</span>
           <span class="badge badge-pill badge-secondary ml-1">{{ event.location.name }}</span>
-        </h6>
+        </h6></a>
         <truncate :text="htmlDecode(event.description)" clamp="Mehr" less="Weniger!"></truncate>
       </div>
     </div>
     <p class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">Veranstaltungen im {{ formatMonth(nextMonth()) }}</p>
     <div class="card mb-1" v-for="event in $store.getters.nextMonthEvents" v-bind:key="event.url">
       <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted" @click="openEventInTab(event.url)">{{ event.name }}
+        <a :href="event.url" class="card-link" target="_blank"><h6 class="card-subtitle mb-2 text-muted">{{ event.name }}
           <span class="badge badge-pill badge-secondary ml-1">{{ formatEventDate(event.starts_at) }}</span>
           <span class="badge badge-pill badge-secondary ml-1">{{ event.location.name }}</span>
-        </h6>
+        </h6></a>
         <truncate :text="htmlDecode(event.description)" clamp="Mehr" less="Weniger!"></truncate>
       </div>
     </div>
@@ -60,9 +60,6 @@ export default {
     currentMonth () {
       return new Date()
     },
-    openEventInTab (url) {
-      window.open(url, '_blank')
-    },
     formatEventDate (date) {
       return format(date, 'DD MMMM HH:mm', { locale: de })
     }
@@ -71,7 +68,7 @@ export default {
 </script>
 
 <style scoped>
-.card-subtitle {
-  cursor: pointer;
+.card-link:hover {
+  text-decoration: none;
 }
 </style>
