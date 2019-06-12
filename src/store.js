@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { getMonth, setMonth, addMonths, addDays, getDate } from 'date-fns'
+import { getMonth, setMonth, addMonths, addDays, getDate, compareAsc } from 'date-fns'
 
 Vue.use(Vuex)
 
@@ -70,15 +70,7 @@ export default new Vuex.Store({
         e.starts_at = new Date(e.starts_at)
         return e
       })
-      return events.sort((a, b) => {
-        if (a.starts_at < b.starts_at) {
-          return -1
-        } else if (a.starts_at > b.starts_at) {
-          return 1
-        } else {
-          return 0
-        }
-      })
+      return events.sort((a, b) => compareAsc(a.starts_at, b.starts_at))
     }
   }
 })
