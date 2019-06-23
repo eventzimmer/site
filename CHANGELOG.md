@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Location badges do not overflow any longer
+- Change read more button to be outlined / more visible
+- Refactor events to be an individual component
 
 ## [0.0.3] - 2019-06-12
 ### Added
