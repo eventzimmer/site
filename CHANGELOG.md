@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Persist selected city
+- Added a back to top button
 
 ### Changed
 - Use Matomo with JavaScript and provide an explicit opt-out link in the privacy page.
