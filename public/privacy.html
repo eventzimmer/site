@@ -74,6 +74,9 @@
             <p class="lead">Rechte des Nutzers: Auskunft, Berichtigung und Löschung</p>
             <p>Sie als Nutzer erhalten auf Antrag Ihrerseits kostenlose Auskunft darüber, welche personenbezogenen Daten über Sie gespeichert wurden. Sofern Ihr Wunsch nicht mit einer gesetzlichen Pflicht zur Aufbewahrung von Daten (z. B. Vorratsdatenspeicherung) kollidiert, haben Sie ein Anrecht auf Berichtigung falscher Daten und auf die Sperrung oder Löschung Ihrer personenbezogenen Daten.</p>
 
+            <p class="lead">Webanalysedienst Matomo</p>
+            <p>Unsere Webseite verwendet Matomo (ehemals Piwik), eine Open-Source-Software zur statistischen Auswertung der Besucherzugriffe. Unser Matomo verwendet keine Cookies. Es erfolgt eine anonymisierte Analyse Ihrer Nutzung des Webauftritts. Ein Rückschluss auf eine bestimmte Person ist dabei nicht möglich, da Ihre IP-Adresse sofort nach der Verarbeitung und vor der Speicherung anonymisiert wird.</p>
+
             <p class="lead">Widerspruch Werbe-Mails</p>
             <p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.</p>
         </div>
@@ -84,5 +87,23 @@
             <span class="text-dark"><a href="/impress.html" class="text-dark">Impressum</a> | <a href="/privacy.html" class="text-dark">Datenschutzerklärung</a> | <a href="https://www.instagram.com/eventzimmer_tuebingen/" aria-label="eventzimmer Instagram profile"><i class="fab fa-instagram text-dark"></i></a></span>
         </div>
     </footer>
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq || [];
+        // Call disableCookies before calling trackPageView 
+        _paq.push(['disableCookies']);
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//matomo.eventzimmer.de/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+        </script>
+        <!-- End Matomo Code -->
 </body>
 </html>

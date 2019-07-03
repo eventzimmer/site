@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.3] - 2019-06-12
 ### Added
+- Added privately hosted Matomo with disabled cookies
 - Added font-awesome and instagram icon + link
 - Added SEO meta tags
 - Add badge with remaining time until event
