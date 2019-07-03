@@ -64,7 +64,7 @@ export default new Vuex.Store({
       let today = new Date()
       let currentDay = getDate(today)
       let currentMonth = getMonth(today)
-      return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) == currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
+      return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) === currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
     },
     events (state) {
       let events = state.events.map((e) => {
