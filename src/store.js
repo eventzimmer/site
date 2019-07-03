@@ -5,6 +5,7 @@ import { getMonth, setMonth, addMonths, addDays, getDate, compareAsc } from 'dat
 
 Vue.use(Vuex)
 
+const PAST_HOUR_LIMIT = 3 // How many hours in the past would we like to include on the current day. In the future this may additionally depend on the length of the event.
 const ENDPOINT = (process.env.VUE_APP_ENDPOINT !== undefined) ? process.env.VUE_APP_ENDPOINT : 'http://localhost:8080/v1'
 const FIXTURE_EVENTS = require('@/assets/events.json')
 
@@ -63,7 +64,7 @@ export default new Vuex.Store({
       let today = new Date()
       let currentDay = getDate(today)
       let currentMonth = getMonth(today)
-      return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay))
+      return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) == currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
     },
     events (state) {
       let events = state.events.map((e) => {
