@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 import { getMonth, setMonth, addMonths, addDays, getDate, compareAsc } from 'date-fns'
 
@@ -19,7 +20,7 @@ export default new Vuex.Store({
     events: []
   },
   mutations: {
-    addEvents (state, events) {
+    changeEvents (state, events) {
       state.events = events
     },
     changeLocation (state, location) {
@@ -39,7 +40,7 @@ export default new Vuex.Store({
           e.starts_at = e.starts_at.toISOString()
           return e
         })
-        return Promise.resolve(context.commit('addEvents', updatedFixtures))
+        return Promise.resolve(context.commit('changeEvents', updatedFixtures))
       } else {
         return fetch(`${ENDPOINT}/events`, {
           headers: {
@@ -48,7 +49,7 @@ export default new Vuex.Store({
           }
         })
           .then((response) => response.json())
-          .then((events) => context.commit('addEvents', events))
+          .then((events) => context.commit('changeEvents', events))
           .catch((err) => {
             throw err
           })
@@ -73,5 +74,12 @@ export default new Vuex.Store({
       })
       return events.sort((a, b) => compareAsc(a.starts_at, b.starts_at))
     }
-  }
+  },
+  plugins: [
+    createPersistedState({
+      key: 'eventzimmer',
+      paths: ['location'],
+      filter: (mutation) => !['changeEvents'].includes(mutation.type)
+    })
+  ]
 })

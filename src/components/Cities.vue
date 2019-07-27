@@ -17,7 +17,6 @@ export default {
   data () {
     return {
       loading: false,
-      city: 'Tübingen',
       cities: [
         {
           name: 'Tübingen',
@@ -42,19 +41,24 @@ export default {
       ]
     }
   },
-  watch: {
-    city: function (cityName) {
-      let vm = this
-      let location = vm.cities.find((c) => c.name === cityName)
-      vm.loading = true
-      vm.$store.commit('changeLocation', location)
-      vm.$store.dispatch('fetchEvents')
-        .then(() => {
-          vm.loading = false
-        }).catch((err) => {
-          console.error(err)
-          vm.loading = false
-        })
+  computed: {
+    city: {
+      get () {
+        return this.$store.state.location.name
+      },
+      set (cityName) {
+        let vm = this
+        let location = vm.cities.find((c) => c.name === cityName)
+        vm.loading = true
+        vm.$store.commit('changeLocation', location)
+        vm.$store.dispatch('fetchEvents')
+          .then(() => {
+            vm.loading = false
+          }).catch((err) => {
+            console.error(err)
+            vm.loading = false
+          })
+      }
     }
   }
 }
