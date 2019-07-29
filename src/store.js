@@ -7,7 +7,7 @@ import { getMonth, setMonth, addMonths, addDays, getDate, compareAsc } from 'dat
 Vue.use(Vuex)
 
 const PAST_HOUR_LIMIT = 3 // How many hours in the past would we like to include on the current day. In the future this may additionally depend on the length of the event.
-const ENDPOINT = (process.env.VUE_APP_ENDPOINT !== undefined) ? process.env.VUE_APP_ENDPOINT : 'http://localhost:8080/v1'
+const ENDPOINT = (process.env.VUE_APP_ENDPOINT !== undefined) ? process.env.VUE_APP_ENDPOINT : 'http://localhost:3000'
 
 const LOCATIONS_ANNOTATED = require('@/assets/locations_annotated.json')
 const CATEGORIES_PER_LOCATION = LOCATIONS_ANNOTATED
@@ -70,15 +70,15 @@ export default new Vuex.Store({
   },
   actions: {
     fetchEvents (context) {
-      return fetch(`${ENDPOINT}/events`, {
-        headers: {
-          Latitude: context.state.location.latitude,
-          Longitude: context.state.location.longitude
-        }
-      })
-        .then((response) => response.json())
+      return fetch(`${ENDPOINT}/rpc/events_by_radius?${new URLSearchParams({
+        latitude: context.state.location.latitude,
+        longitude: context.state.location.longitude,
+        select: 'name,url,description,created_at,starts_at,location(*),source(*)'
+      })}`, {
+        'Content-Type': 'application/json'
+      }).then((response) => response.json())
         .then((events) => {
-          if (typeof webpackHotUpdate !== 'undefined') {
+          if (typeof webpackHotUpdate !== 'undefined') { // eslint-disable-line no-undef
             let today = new Date()
             let currentDay = getDate(today)
             let currentMonth = getMonth(today)
@@ -89,8 +89,8 @@ export default new Vuex.Store({
               e.starts_at = e.starts_at.toISOString()
               return e
             })
-          }// eslint-disable-line no-undef
-          return Promise.resolve(events)
+            return Promise.resolve(events)
+          }
         })
         .then((events) => context.commit('changeEvents', events))
         .catch((err) => {
