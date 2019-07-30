@@ -92,6 +92,9 @@ export default new Vuex.Store({
       let currentMonth = getMonth(today)
       return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) === currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
     },
+    locations () {
+      return new Set(Object.values(TAGS_PER_LOCATION).reduce((acc, val) => acc.concat(val), []))
+    },
     annotatedEvents (state, getters) {
       return getters.events.map((event) => {
         event.tags = TAGS_PER_LOCATION[event.location.name]
