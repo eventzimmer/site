@@ -10,7 +10,7 @@ const PAST_HOUR_LIMIT = 3 // How many hours in the past would we like to include
 const ENDPOINT = (process.env.VUE_APP_ENDPOINT !== undefined) ? process.env.VUE_APP_ENDPOINT : 'http://localhost:8080/v1'
 
 const LOCATIONS_ANNOTATED = require('@/assets/locations_annotated.json')
-const TAGS_PER_LOCATION = LOCATIONS_ANNOTATED
+const CATEGORIES_PER_LOCATION = LOCATIONS_ANNOTATED
   .map((location) => {
     return {
       name: location.name,
@@ -22,11 +22,19 @@ const TAGS_PER_LOCATION = LOCATIONS_ANNOTATED
     return accumulator
   }, {})
 
+const selection = {
+  state: {
+    categories: []
+  },
+  mutations: {
+    changeCategories (state, categories) {
+      state.categories = categories
+    }
+  }
+}
+
 export default new Vuex.Store({
   state: {
-    selection: {
-      categories: []
-    },
     location: {
       name: 'Tübingen',
       latitude: 48.52,
@@ -84,20 +92,27 @@ export default new Vuex.Store({
   getters: {
     nextMonthEvents (state, getters) {
       let nextMonth = getMonth(addMonths(new Date(), 1))
-      return getters.events.filter((e) => getMonth(e.starts_at) === nextMonth)
+      return getters.eventsWithSelectedCategories.filter((e) => getMonth(e.starts_at) === nextMonth)
     },
     currentMonthEvents (state, getters) {
       let today = new Date()
       let currentDay = getDate(today)
       let currentMonth = getMonth(today)
-      return getters.events.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) === currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
+      return getters.eventsWithSelectedCategories.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) === currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
     },
-    locations () {
-      return new Set(Object.values(TAGS_PER_LOCATION).reduce((acc, val) => acc.concat(val), []))
+    categories () {
+      return new Set(Object.values(CATEGORIES_PER_LOCATION).reduce((acc, val) => acc.concat(val), [])) // NOTE: This can be replaced with Array.flat
     },
-    annotatedEvents (state, getters) {
+    eventsWithSelectedCategories (state, getters) {
+      if (state.selection.categories.length) {
+        return getters.eventsWithCategories.filter((e) => e.categories.some((c) => state.selection.categories.includes(c)))
+      } else {
+        return getters.eventsWithCategories
+      }
+    },
+    eventsWithCategories (state, getters) {
       return getters.events.map((event) => {
-        event.tags = TAGS_PER_LOCATION[event.location.name]
+        event.categories = CATEGORIES_PER_LOCATION[event.location.name]
         return event
       })
     },
@@ -108,6 +123,9 @@ export default new Vuex.Store({
       })
       return events.sort((a, b) => compareAsc(a.starts_at, b.starts_at))
     }
+  },
+  modules: {
+    selection: selection
   },
   plugins: [
     createPersistedState({

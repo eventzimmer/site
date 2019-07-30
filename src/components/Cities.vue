@@ -1,14 +1,8 @@
 <template>
-  <div class="row mb-1 mt-1">
-    <div class="col-sm"></div>
-    <div class="col-sm"></div>
-    <div class="col-sm-2">
-      <select class="custom-select" v-model="city" id="citySelect" :disabled="loading">
-        <label for="citySelect">Städte</label>
-        <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
-      </select>
-    </div>
-  </div>
+  <select class="custom-select" v-model="city" id="citySelect" :disabled="loading">
+    <label for="citySelect">Städte</label>
+    <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
+  </select>
 </template>
 
 <script>
