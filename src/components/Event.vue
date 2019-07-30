@@ -5,9 +5,10 @@
         <h6 class="card-subtitle mb-1 text-muted">
           {{ event.name }}
         </h6>
-        <span class="badge badge-pill badge-secondary overflow-auto">{{ distanceInWordsToNow(event.starts_at) }}</span>
+        <span class="badge badge-pill badge-secondary ml-1 overflow-auto">{{ distanceInWordsToNow(event.starts_at) }}</span>
         <span class="badge badge-pill badge-secondary ml-1 overflow-auto">{{ formatEventDate(event.starts_at) }}</span>
         <span class="badge badge-pill badge-secondary ml-1 d-inline-block text-truncate" style="max-width: 100%">{{ event.location.name }}</span>
+        <span class="badge badge-pill badge-secondary ml-1 overflow-auto" v-for="category in event.categories">{{ category }}</span>
         <br/>
       </a>
       <span v-html="htmlDecode(event.description.substring(0, (collapsed) ? 200 : event.description.length))"></span>

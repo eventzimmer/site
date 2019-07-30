@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Display categories for every event
 - Make it possible to filter by category
 - Add all available tags to all events based on locations
 - Persist selected city
