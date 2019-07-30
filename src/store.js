@@ -8,7 +8,7 @@ Vue.use(Vuex)
 
 const PAST_HOUR_LIMIT = 3 // How many hours in the past would we like to include on the current day. In the future this may additionally depend on the length of the event.
 const ENDPOINT = (process.env.VUE_APP_ENDPOINT !== undefined) ? process.env.VUE_APP_ENDPOINT : 'http://localhost:8080/v1'
-const FIXTURE_EVENTS = require('@/assets/events.json')
+
 const LOCATIONS_ANNOTATED = require('@/assets/locations_annotated.json')
 const TAGS_PER_LOCATION = LOCATIONS_ANNOTATED
   .map((location) => {
@@ -48,14 +48,24 @@ export default new Vuex.Store({
         let today = new Date()
         let currentDay = getDate(today)
         let currentMonth = getMonth(today)
-        let updatedFixtures = FIXTURE_EVENTS.map((e) => {
-          e.starts_at = new Date(e.starts_at)
-          e.starts_at = setMonth(e.starts_at, currentMonth)
-          e.starts_at = addDays(e.starts_at, currentDay)
-          e.starts_at = e.starts_at.toISOString()
-          return e
+        return fetch(`${ENDPOINT}/events`, {
+          headers: {
+            Latitude: context.state.location.latitude,
+            Longitude: context.state.location.longitude
+          }
         })
-        return Promise.resolve(context.commit('changeEvents', updatedFixtures))
+          .then((response) => response.json())
+          .then((events) => events.map((e) => {
+            e.starts_at = new Date(e.starts_at)
+            e.starts_at = setMonth(e.starts_at, currentMonth)
+            e.starts_at = addDays(e.starts_at, currentDay)
+            e.starts_at = e.starts_at.toISOString()
+            return e
+          }))
+          .then((events) => context.commit('changeEvents', events))
+          .catch((err) => {
+            throw err
+          })
       } else {
         return fetch(`${ENDPOINT}/events`, {
           headers: {

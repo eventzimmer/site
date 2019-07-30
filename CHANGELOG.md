@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change read more button to be outlined / more visible
 - Refactor events to be an individual component
 
+### Removed
+- Remove fixtures
+
 ## [0.0.3] - 2019-06-12
 ### Added
 - Added privately hosted Matomo with disabled cookies
