@@ -37,9 +37,9 @@ export default {
   mounted () {
     window.onscroll = () => {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 100) {
-        document.getElementById('backToTop').style.display = 'block'
+        document.getElementById('back-to-top').style.display = 'block'
       } else {
-        document.getElementById('backToTop').style.display = 'none'
+        document.getElementById('back-to-top').style.display = 'none'
       }
     }
   },
