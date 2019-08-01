@@ -52,41 +52,32 @@ export default new Vuex.Store({
   },
   actions: {
     fetchEvents (context) {
-      if (typeof webpackHotUpdate !== 'undefined') { // eslint-disable-line no-undef
-        let today = new Date()
-        let currentDay = getDate(today)
-        let currentMonth = getMonth(today)
-        return fetch(`${ENDPOINT}/events`, {
-          headers: {
-            Latitude: context.state.location.latitude,
-            Longitude: context.state.location.longitude
-          }
+      return fetch(`${ENDPOINT}/events`, {
+        headers: {
+          Latitude: context.state.location.latitude,
+          Longitude: context.state.location.longitude
+        }
+      })
+        .then((response) => response.json())
+        .then((events) => {
+          if (typeof webpackHotUpdate !== 'undefined') {
+            let today = new Date()
+            let currentDay = getDate(today)
+            let currentMonth = getMonth(today)
+            events = events.map((e) => {
+              e.starts_at = new Date(e.starts_at)
+              e.starts_at = setMonth(e.starts_at, currentMonth)
+              e.starts_at = addDays(e.starts_at, currentDay)
+              e.starts_at = e.starts_at.toISOString()
+              return e
+            })
+          }// eslint-disable-line no-undef
+          return Promise.resolve(events)
         })
-          .then((response) => response.json())
-          .then((events) => events.map((e) => {
-            e.starts_at = new Date(e.starts_at)
-            e.starts_at = setMonth(e.starts_at, currentMonth)
-            e.starts_at = addDays(e.starts_at, currentDay)
-            e.starts_at = e.starts_at.toISOString()
-            return e
-          }))
-          .then((events) => context.commit('changeEvents', events))
-          .catch((err) => {
-            throw err
-          })
-      } else {
-        return fetch(`${ENDPOINT}/events`, {
-          headers: {
-            Latitude: context.state.location.latitude,
-            Longitude: context.state.location.longitude
-          }
+        .then((events) => context.commit('changeEvents', events))
+        .catch((err) => {
+          throw err
         })
-          .then((response) => response.json())
-          .then((events) => context.commit('changeEvents', events))
-          .catch((err) => {
-            throw err
-          })
-      }
     }
   },
   getters: {
