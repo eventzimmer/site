@@ -1,6 +1,7 @@
 <template>
   <select class="custom-select" size="2" v-model="categories" id="categorySelect" multiple>
     <label for="categorySelect">Kategorien</label>
+    <option :value="[]" selected disabled hidden>Kategorie(n) auswählen</option>
     <option v-for="category in $store.getters.categories" :value="category" v-bind:key="category">{{ category }}</option>
   </select>
 </template>
