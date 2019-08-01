@@ -25,14 +25,28 @@ const CATEGORIES_PER_LOCATION = LOCATIONS_ANNOTATED
 const selection = {
   state: {
     categories: [],
-    range: null
+    start: null,
+    end: null
+  },
+  getters: {
+    range (state) {
+      return (state.start !== null) ? {
+        start: new Date(state.start),
+        end: new Date(state.end)
+      } : null
+    }
   },
   mutations: {
     changeCategories (state, categories) {
       state.categories = categories
     },
     changeRange (state, range) {
-      state.range = range
+      if (range !== null) {
+        state.start = range.start.toISOString()
+        state.end = range.end.toISOString()
+      } else {
+        state.start = state.end = null
+      }
     }
   }
 }
@@ -87,26 +101,26 @@ export default new Vuex.Store({
   getters: {
     nextMonthEvents (state, getters) {
       let nextMonth = getMonth(addMonths(new Date(), 1))
-      return getters.eventsWithSelectedCategories.filter((e) => getMonth(e.starts_at) === nextMonth)
+      return getters.eventsBySelectedCategories.filter((e) => getMonth(e.starts_at) === nextMonth)
     },
     currentMonthEvents (state, getters) {
       let today = new Date()
       let currentDay = getDate(today)
       let currentMonth = getMonth(today)
-      return getters.eventsWithSelectedCategories.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) === currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
+      return getters.eventsBySelectedCategories.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) === currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
     },
-    categories () {
-      return new Set(Object.values(CATEGORIES_PER_LOCATION).reduce((acc, val) => acc.concat(val), [])) // NOTE: This can be replaced with Array.flat
-    },
-    eventsWithSelectedCategories (state, getters) {
+    eventsBySelectedCategories (state, getters) {
       if (state.selection.categories.length) {
         return getters.eventsWithCategories.filter((e) => e.categories.some((c) => state.selection.categories.includes(c)))
       } else {
         return getters.eventsWithCategories
       }
     },
+    eventsByRange (state, getters) {
+      return (state.selection.start !== null) ? getters.events.filter((e) => (e.starts_at >= getters.range.start) && (e.starts_at <= getters.range.end)) : getters.events
+    },
     eventsWithCategories (state, getters) {
-      return getters.events.map((event) => {
+      return getters.eventsByRange.map((event) => {
         event.categories = CATEGORIES_PER_LOCATION[event.location.name]
         return event
       })
@@ -117,6 +131,9 @@ export default new Vuex.Store({
         return e
       })
       return events.sort((a, b) => compareAsc(a.starts_at, b.starts_at))
+    },
+    categories () {
+      return new Set(Object.values(CATEGORIES_PER_LOCATION).reduce((acc, val) => acc.concat(val), [])) // NOTE: This can be replaced with Array.flat
     }
   },
   modules: {

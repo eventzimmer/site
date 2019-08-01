@@ -1,5 +1,5 @@
 <template>
-  <div class="input-group d-flex justify-content-end">
+  <div class="d-flex justify-content-end">
       <v-date-picker
         :min-date="new Date()"
         :max-date="maxDate"
@@ -16,9 +16,7 @@
         v-on="inputEvents"
       >
       </v-date-picker>
-    <div class="input-group-append">
-        <label class="input-group-text" for="date-range" @click="$store.commit('changeRange', null)"><i class="fas fa-undo"></i></label>
-      </div>
+      <button type="button" class="btn btn-secondary" @click="range = null"><i class="fas fa-undo"></i></button>
   </div>
 </template>
 
@@ -35,7 +33,7 @@ export default {
   computed: {
     range: {
       get () {
-        return this.$store.state.selection.range
+        return this.$store.getters.range
       },
       set (range) {
         this.$store.commit('changeRange', range)

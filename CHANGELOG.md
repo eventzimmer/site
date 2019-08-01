@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added a back to top button
 
 ### Changed
+- Filter events based on range
 - Use Matomo with JavaScript and provide an explicit opt-out link in the privacy page.
 - Exclude events that are older than PAST_HOUR_LIMIT hours from the current day
 - Location badges do not overflow any longer
