@@ -130,7 +130,7 @@ export default new Vuex.Store({
   plugins: [
     createPersistedState({
       key: 'eventzimmer',
-      paths: ['location'],
+      paths: ['location', 'selection'],
       filter: (mutation) => !['changeEvents'].includes(mutation.type)
     })
   ]
