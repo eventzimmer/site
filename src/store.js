@@ -24,11 +24,15 @@ const CATEGORIES_PER_LOCATION = LOCATIONS_ANNOTATED
 
 const selection = {
   state: {
-    categories: []
+    categories: [],
+    range: null
   },
   mutations: {
     changeCategories (state, categories) {
       state.categories = categories
+    },
+    changeRange (state, range) {
+      state.range = range
     }
   }
 }

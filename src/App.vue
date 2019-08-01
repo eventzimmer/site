@@ -4,6 +4,10 @@
     <button type="button" @click="backToTop" id="back-to-top" class="btn btn-secondary btn-back-to-top fixed-bottom mb-2" style="display: none"><i class="fas fa-angle-up"></i></button>
     <div class="row mb-1 mt-1">
       <div class="col-sm"></div>
+      <div class="col-sm-3">
+        <date-range></date-range>
+        <div class="mt-2 visible-sm"></div>
+      </div>
       <div class="col-sm-2">
         <categories></categories>
         <div class="mt-2 visible-sm"></div>
@@ -20,13 +24,15 @@
 import Events from '@/components/Events'
 import Cities from '@/components/Cities'
 import Categories from '@/components/Categories'
+import DateRange from '@/components/DateRange'
 
 export default {
   name: 'app',
   components: {
     Events,
     Cities,
-    Categories
+    Categories,
+    DateRange
   },
   mounted () {
     window.onscroll = () => {
