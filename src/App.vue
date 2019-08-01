@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h3 class="mt-5">eventzimmer</h3>
-    <button type="button" @click="backToTop" id="backToTop" class="btn btn-secondary btn-back-to-top fixed-bottom mb-2" style="display: none"><i class="fas fa-angle-up"></i></button>
+    <button type="button" @click="backToTop" id="back-to-top" class="btn btn-secondary btn-back-to-top fixed-bottom mb-2" style="display: none"><i class="fas fa-angle-up"></i></button>
     <div class="row mb-1 mt-1">
       <div class="col-sm"></div>
       <div class="col-sm-2">
