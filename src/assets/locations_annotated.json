@@ -1,302 +1,302 @@
-[
-  {
-    "name": "Bierkeller Tübingen",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Epplehaus",
-    "tags": "Nachtleben,Vortrag,Konzert"
-  },
-  {
-    "name": "Schlachthaus",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Schwarzes Schaf",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Clubhaus",
-    "tags": "Party"
-  },
-  {
-    "name": "CLUB 27 TÜBINGEN",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Kulturschock Zelle e.V.",
-    "tags": "Nachtleben,Vortrag"
-  },
-  {
-    "name": "Kuckuck WHO",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Geissweg",
-    "tags": "Nachtleben,Vortrag"
-  },
-  {
-    "name": "Club Voltaire",
-    "tags": "Vortrag,Konzert"
-  },
-  {
-    "name": "Jazzclub Tübingen",
-    "tags": "Vortrag,Konzert"
-  },
-  {
-    "name": "Sudhaus Tübingen",
-    "tags": "Nachtleben,Vortrag,Konzert"
-  },
-  {
-    "name": "Kulturzentrum franz.K Reutlingen",
-    "tags": "Vortrag,Konzert,Bühne"
-  },
-  {
-    "name": "TOP10 Tübingen",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "LTT - Landestheater Württemberg-Hohenzollern Tübingen Reutlingen",
-    "tags": "Bühne"
-  },
-  {
-    "name": "Frau Hopf im Schloßcafé",
-    "tags": "Vortrag,Konzert"
-  },
-  {
-    "name": "Kino Arsenal & Kino Atelier",
-    "tags": "Film"
-  },
-  {
-    "name": "Café Haag",
-    "tags": "Vortrag,Konzert,Film,Bühne"
-  },
-  {
-    "name": "QFILM Tübingen",
-    "tags": "Film"
-  },
-  {
-    "name": "Schelling",
-    "tags": "Nachtleben,Vortrag,Konzert"
-  },
-  {
-    "name": "Lu15",
-    "tags": "Nachtleben,Vortrag,Konzert"
-  },
-  {
-    "name": "Blauer Salon",
-    "tags": "Nachtleben,Vortrag,Konzert"
-  },
-  {
-    "name": "LUDWIGs Tübingen",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Pausenhof",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Bricks Tübingen",
-    "tags": ""
-  },
-  {
-    "name": "Friedrichs Bar & Clublounge",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Deutsch-Amerikanisches Institut Tübingen DAI",
-    "tags": "Vortrag"
-  },
-  {
-    "name": "Gasthausbrauerei Neckarmüller",
-    "tags": "Nachtleben,Konzert"
-  },
-  {
-    "name": "Jazzclub in der MITTE Reutlingen",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Ribingurūmu",
-    "tags": "Nachtleben,Bühne"
-  },
-  {
-    "name": "Last Resort",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Lehmann Club",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Kowalski",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Discothek WOM",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Wagenhallen",
-    "tags": "Konzert"
-  },
-  {
-    "name": "Sonnenkeller. Live Club. Balingen",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "TOP10 Balingen",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "KULTURINSEL Stuttgart (Original)",
-    "tags": "Nachtleben,Vortrag,Konzert"
-  },
-  {
-    "name": "LKA Longhorn",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Jugendhaus INSEL",
-    "tags": ""
-  },
-  {
-    "name": "Doppeldecker",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Stadthalle Balingen",
-    "tags": "Konzert,Vortrag"
-  },
-  {
-    "name": "WARANGA Bar & Clublounge",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "PURE Stuttgart",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Mehrgenerationenhaus Linde",
-    "tags": ""
-  },
-  {
-    "name": "Kultur Openair",
-    "tags": "Konzert"
-  },
-  {
-    "name": "club bastion e.V.",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Tropi Albstadt",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Filmriss",
-    "tags": "Film"
-  },
-  {
-    "name": "Wunderbar Kirchheim",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Rote Sonne",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Zimmertheater Tübingen",
-    "tags": "Bühne"
-  },
-  {
-    "name": "KUNSTHALLE TÜBINGEN",
-    "tags": "Bühne,Vortrag"
-  },
-  {
-    "name": "Werkstadthaus",
-    "tags": "Bühne,Vortrag"
-  },
-  {
-    "name": "Eberhard Karls Universität Tübingen",
-    "tags": "Vortrag"
-  },
-  {
-    "name": "Unikino Tübingen",
-    "tags": "Kino"
-  },
-  {
-    "name": "Willi Tübingen",
-    "tags": "Nachtleben,Konzert"
-  },
-  {
-    "name": "Haus der Jugend",
-    "tags": "Konzert,Vortrag"
-  },
-  {
-    "name": "Stadtpalais Stuttgart",
-    "tags": "Konzert,Vortrag"
-  },
-  {
-    "name": "Rakete",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "White Noise",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Theater Rampe",
-    "tags": "Bühne"
-  },
-  {
-    "name": "Icecafeadria",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Korridor",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Café Klotz",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Cafe Galao",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Steinstraße 13, 70173 Stuttgart, Deutschland",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Café Arg",
-    "tags": "Nachtleben"
-  },
-  {
-    "name": "Werkstatthaus",
-    "tags": "Vortrag"
-  },
-  {
-    "name": "Mittwochsbühne",
-    "tags": "Bühne"
-  },
-  {
-    "name": "Stadthalle Reutlingen",
-    "tags": "Vortrag"
-  },
-  {
-    "name": "VHS Tübingen",
-    "tags": "Vortrag"
-  },
-  {
-    "name": "Ratskeller Tübingen",
-    "tags": "Nachtleben,Konzert"
-  },
-  {
-    "name": "Goldene Zeiten Tübingen",
-    "tags": "Nachtleben,Konzert"
-  },
-  {
-    "name": "Deutsch-Französisches Kulturinstitut Tübingen",
-    "tags": "Vortrag"
-  }
+[{
+		"name": "Bierkeller Tübingen",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Epplehaus",
+		"tags": "Nachtleben,Vortrag,Konzert"
+	},
+	{
+		"name": "Schlachthaus",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Schwarzes Schaf",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Clubhaus",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "CLUB 27 TÜBINGEN",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Kulturschock Zelle e.V.",
+		"tags": "Nachtleben,Vortrag"
+	},
+	{
+		"name": "Kuckuck WHO",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Geissweg",
+		"tags": "Nachtleben,Vortrag"
+	},
+	{
+		"name": "Club Voltaire",
+		"tags": "Vortrag,Konzert"
+	},
+	{
+		"name": "Jazzclub Tübingen",
+		"tags": "Vortrag,Konzert"
+	},
+	{
+		"name": "Sudhaus Tübingen",
+		"tags": "Nachtleben,Vortrag,Konzert"
+	},
+	{
+		"name": "Kulturzentrum franz.K Reutlingen",
+		"tags": "Vortrag,Konzert,Bühne"
+	},
+	{
+		"name": "TOP10 Tübingen",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "LTT - Landestheater Württemberg-Hohenzollern Tübingen Reutlingen",
+		"tags": "Bühne"
+	},
+	{
+		"name": "Frau Hopf im Schloßcafé",
+		"tags": "Vortrag,Konzert"
+	},
+	{
+		"name": "Kino Arsenal & Kino Atelier",
+		"tags": "Film"
+	},
+	{
+		"name": "Café Haag",
+		"tags": "Vortrag,Konzert,Film,Bühne"
+	},
+	{
+		"name": "QFILM Tübingen",
+		"tags": "Film"
+	},
+	{
+		"name": "Schelling",
+		"tags": "Nachtleben,Vortrag,Konzert"
+	},
+	{
+		"name": "Lu15",
+		"tags": "Nachtleben,Vortrag,Konzert"
+	},
+	{
+		"name": "Blauer Salon",
+		"tags": "Nachtleben,Vortrag,Konzert"
+	},
+	{
+		"name": "LUDWIGs Tübingen",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Pausenhof",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Bricks Tübingen",
+		"tags": ""
+	},
+	{
+		"name": "Friedrichs Bar & Clublounge",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Deutsch-Amerikanisches Institut Tübingen DAI",
+		"tags": "Vortrag"
+	},
+	{
+		"name": "Gasthausbrauerei Neckarmüller",
+		"tags": "Nachtleben,Konzert"
+	},
+	{
+		"name": "Jazzclub in der MITTE Reutlingen",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Ribingurūmu",
+		"tags": "Nachtleben,Bühne"
+	},
+	{
+		"name": "Last Resort",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Lehmann Club",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Kowalski",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Discothek WOM",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Wagenhallen",
+		"tags": "Konzert"
+	},
+	{
+		"name": "Sonnenkeller. Live Club. Balingen",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "TOP10 Balingen",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "KULTURINSEL Stuttgart (Original)",
+		"tags": "Nachtleben,Vortrag,Konzert"
+	},
+	{
+		"name": "LKA Longhorn",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Jugendhaus INSEL",
+		"tags": ""
+	},
+	{
+		"name": "Doppeldecker",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Stadthalle Balingen",
+		"tags": "Konzert,Vortrag"
+	},
+	{
+		"name": "WARANGA Bar & Clublounge",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "PURE Stuttgart",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Mehrgenerationenhaus Linde",
+		"tags": ""
+	},
+	{
+		"name": "Kultur Openair",
+		"tags": "Konzert"
+	},
+	{
+		"name": "club bastion e.V.",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Tropi Albstadt",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Filmriss",
+		"tags": "Film"
+	},
+	{
+		"name": "Wunderbar Kirchheim",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Rote Sonne",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Zimmertheater Tübingen",
+		"tags": "Bühne"
+	},
+	{
+		"name": "KUNSTHALLE TÜBINGEN",
+		"tags": "Bühne,Vortrag"
+	},
+	{
+		"name": "Werkstadthaus",
+		"tags": "Bühne,Vortrag"
+	},
+	{
+		"name": "Eberhard Karls Universität Tübingen",
+		"tags": "Vortrag"
+	},
+	{
+		"name": "Unikino Tübingen",
+		"tags": "Film"
+	},
+	{
+		"name": "Willi Tübingen",
+		"tags": "Nachtleben,Konzert"
+	},
+	{
+		"name": "Haus der Jugend",
+		"tags": "Konzert,Vortrag"
+	},
+	{
+		"name": "Stadtpalais Stuttgart",
+		"tags": "Konzert,Vortrag"
+	},
+	{
+		"name": "Rakete",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "White Noise",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Theater Rampe",
+		"tags": "Bühne"
+	},
+	{
+		"name": "Icecafeadria",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Korridor",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Café Klotz",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Cafe Galao",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Steinstraße 13, 70173 Stuttgart, Deutschland",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Café Arg",
+		"tags": "Nachtleben"
+	},
+	{
+		"name": "Werkstatthaus",
+		"tags": "Vortrag"
+	},
+	{
+		"name": "Mittwochsbühne",
+		"tags": "Bühne"
+	},
+	{
+		"name": "Stadthalle Reutlingen",
+		"tags": "Vortrag"
+	},
+	{
+		"name": "VHS Tübingen",
+		"tags": "Vortrag"
+	},
+	{
+		"name": "Ratskeller Tübingen",
+		"tags": "Nachtleben,Konzert"
+	},
+	{
+		"name": "Goldene Zeiten Tübingen",
+		"tags": "Nachtleben,Konzert"
+	},
+	{
+		"name": "Deutsch-Französisches Kulturinstitut Tübingen",
+		"tags": "Vortrag"
+	}
 ]
+
