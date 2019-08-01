@@ -1,11 +1,11 @@
 <template>
-  <div class="d-flex justify-content-end">
+  <div class="d-flex">
       <v-date-picker
         :min-date="new Date()"
         :max-date="maxDate"
         mode="range"
         v-model="range"
-        class="w-50"
+        class="w-100"
       >
       <!--Custom Input Slot-->
       <input

@@ -4,15 +4,15 @@
     <button type="button" @click="backToTop" id="back-to-top" class="btn btn-secondary btn-back-to-top fixed-bottom mb-2" style="display: none"><i class="fas fa-angle-up"></i></button>
     <div class="row mb-1 mt-1">
       <div class="col-sm"></div>
-      <div class="col-sm-3">
+      <div class="col-sm-3 col-md-2">
         <date-range></date-range>
         <div class="mt-2 visible-sm"></div>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 col-md-2">
         <categories></categories>
         <div class="mt-2 visible-sm"></div>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 col-md-2">
         <cities></cities>
       </div>
     </div>
