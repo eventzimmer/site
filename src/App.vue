@@ -46,7 +46,15 @@ export default {
 </script>
 
 <style scoped>
-.btn-back-to-top {
-  left: 85%;
+@media (max-width: 767.98px) {
+  .btn-back-to-top {
+    left: 85%;
+  }
+}
+
+@media (min-width: 767.98px) {
+  .btn-back-to-top {
+    left: 80%;
+  }
 }
 </style>
