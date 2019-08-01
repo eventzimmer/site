@@ -6,6 +6,7 @@
       <div class="col-sm"></div>
       <div class="col-sm-2">
         <categories></categories>
+        <div class="mt-2 visible-sm"></div>
       </div>
       <div class="col-sm-2">
         <cities></cities>
