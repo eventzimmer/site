@@ -14,6 +14,7 @@
         class="custom-select"
         v-bind="inputProps"
         v-on="inputEvents"
+        placeholder="Datum wählen"
       >
       </v-date-picker>
       <button type="button" class="btn btn-secondary" @click="range = null"><i class="fas fa-undo"></i></button>
