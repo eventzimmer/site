@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
-import { getMonth, setMonth, addMonths, addDays, getDate, compareAsc } from 'date-fns'
+import { getMonth, setMonth, addMonths, addDays, getDate } from 'date-fns'
 
 Vue.use(Vuex)
 
@@ -73,7 +73,8 @@ export default new Vuex.Store({
       return fetch(`${ENDPOINT}/rpc/events_by_radius?${new URLSearchParams({
         latitude: context.state.location.latitude,
         longitude: context.state.location.longitude,
-        select: 'name,url,description,created_at,starts_at,location(*),source(*)'
+        select: 'name,url,description,created_at,starts_at,location(*),source(*)',
+        order: 'starts_at'
       })}`, {
         'Content-Type': 'application/json'
       }).then((response) => response.json())
@@ -126,11 +127,10 @@ export default new Vuex.Store({
       })
     },
     events (state) {
-      let events = state.events.map((e) => {
+      return state.events.map((e) => {
         e.starts_at = new Date(e.starts_at)
         return e
       })
-      return events.sort((a, b) => compareAsc(a.starts_at, b.starts_at))
     },
     categories () {
       return new Set(Object.values(CATEGORIES_PER_LOCATION).reduce((acc, val) => acc.concat(val), [])) // NOTE: This can be replaced with Array.flat
