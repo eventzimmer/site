@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
-import { getMonth, setMonth, addMonths, addDays, getDate } from 'date-fns'
+import { getMonth, addMonths, getDate } from 'date-fns'
 
 Vue.use(Vuex)
 
@@ -78,21 +78,6 @@ export default new Vuex.Store({
       })}`, {
         'Content-Type': 'application/json'
       }).then((response) => response.json())
-        .then((events) => {
-          if (typeof webpackHotUpdate !== 'undefined') { // eslint-disable-line no-undef
-            let today = new Date()
-            let currentDay = getDate(today)
-            let currentMonth = getMonth(today)
-            events = events.map((e) => {
-              e.starts_at = new Date(e.starts_at)
-              e.starts_at = setMonth(e.starts_at, currentMonth)
-              e.starts_at = addDays(e.starts_at, currentDay)
-              e.starts_at = e.starts_at.toISOString()
-              return e
-            })
-            return Promise.resolve(events)
-          }
-        })
         .then((events) => context.commit('changeEvents', events))
         .catch((err) => {
           throw err
