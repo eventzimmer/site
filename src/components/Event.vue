@@ -12,7 +12,7 @@
         <br/>
       </a>
       <span v-html="htmlDecode(event.description.substring(0, (collapsed) ? 200 : event.description.length))"></span>
-      <button type="button" class="btn btn-outline-secondary btn-sm ml-1" @click="collapsed = !collapsed">{{ (collapsed) ? 'Mehr' : 'Weniger' }}</button>
+      <button type="button" v-if="event.description.length > max" class="btn btn-outline-secondary btn-sm ml-1" @click="collapsed = !collapsed">{{ (collapsed) ? 'Mehr' : 'Weniger' }}</button>
     </div>
   </div>
 </template>
@@ -32,6 +32,10 @@ export default {
     event: {
       type: Object,
       required: true
+    },
+    max: {
+      type: Number,
+      default: 200
     }
   },
   methods: {
