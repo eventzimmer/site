@@ -1,0 +1,15 @@
+{
+    "msg": {
+        "page_wakeup": "Die Seite schläft gerade noch 💤. Gib uns einen Moment um sie aufzuwecken.",
+        "events_in": "Veranstaltungen im",
+        "cities": "Städte",
+        "select_categories": "Kategorie(n) auswählen",
+        "categories": "Kategorien",
+        "more_less": "Mehr | Weniger",
+        "timespan": "Zeitraum wählen",
+        "imprint": "Impressum",
+        "privacy": "Datenschutzerklärung",
+        "file_imprint": "impressum.html",
+        "file_privacy": "datenschutz.html"
+    }
+}
