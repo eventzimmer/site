@@ -1,12 +1,12 @@
 <template>
   <div v-if="!loading">
-    <p class="lead" v-if="$store.getters.currentMonthEvents.length">Veranstaltungen im {{ formatMonth(new Date()) }}</p>
+    <p class="lead" v-if="$store.getters.currentMonthEvents.length">{{ $t("msg.events_in") }} {{ formatMonth(new Date()) }}</p>
     <event :event="event" v-for="event in $store.getters.currentMonthEvents" v-bind:key="event.url"></event>
-    <p class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">Veranstaltungen im {{ formatMonth(nextMonth()) }}</p>
+    <p class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">{{ $t("msg.events_in") }} {{ formatMonth(nextMonth()) }}</p>
     <event :event="event" v-for="event in $store.getters.nextMonthEvents" v-bind:key="event.url"></event>
   </div>
   <div v-else>
-    <p class="lead">Die Seite schläft gerade noch 💤. Gib uns einen Moment um sie aufzuwecken.</p>
+    <p class="lead">{{ $t("msg.page_wakeup") }}</p>
   </div>
 </template>
 
@@ -14,6 +14,7 @@
 import { addMonths, format } from 'date-fns'
 import de from 'date-fns/locale/de'
 import Event from '@/components/Event'
+
 
 export default {
   name: 'Events',
