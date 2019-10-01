@@ -3,7 +3,7 @@
     <h3 class="mt-5">eventzimmer</h3>
 
 	<div class="locale-changer">
-   <select v-model="$i18n.locale">
+   <select v-model="$i18n.locale"  @change="onChange($event)">
 	 <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
    </select>
  </div>
@@ -24,6 +24,9 @@
       </div>
     </div>
     <events></events>
+
+
+  	<Footer class="footer mt-auto py-3"></Footer>
   </div>
 </template>
 
@@ -32,6 +35,8 @@ import Events from '@/components/Events'
 import Cities from '@/components/Cities'
 import Categories from '@/components/Categories'
 import DateRange from '@/components/DateRange'
+import Footer from '@/components/Footer'
+import VueCookies from 'vue-cookies'
 
 export default {
   name: 'app',
@@ -39,7 +44,8 @@ export default {
     Events,
     Cities,
     Categories,
-    DateRange
+    DateRange,
+	Footer
   },
   mounted () {
     window.onscroll = () => {
@@ -53,10 +59,14 @@ export default {
   methods: {
     backToTop () {
       window.scrollTo(0, 0)
-    }
+    },
+	onChange(event){
+		VueCookies.set('lang', event.target.value);
+	}
   },
   name: 'locale-changer',
   data () {
+
     return { langs: ['de', 'en'] }
   }
 }
