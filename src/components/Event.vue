@@ -12,7 +12,7 @@
         <br/>
       </a>
       <span v-html="htmlDecode(event.description.substring(0, (collapsed) ? 200 : event.description.length))"></span>
-      <button type="button" v-if="event.description.length > max" class="btn btn-outline-secondary btn-sm ml-1" @click="collapsed = !collapsed">{{ (collapsed) ? 'Mehr' : 'Weniger' }}</button>
+      <button type="button" v-if="event.description.length > max" class="btn btn-outline-secondary btn-sm ml-1" @click="collapsed = !collapsed">{{ $tc('msg.more_less', collapsed) }}</button>
     </div>
   </div>
 </template>
@@ -20,6 +20,12 @@
 <script>
 import { format, distanceInWordsToNow } from 'date-fns'
 import de from 'date-fns/locale/de'
+import en from 'date-fns/locale/en'
+
+window.locales = {
+	de,
+	en
+}
 
 export default {
   name: 'Event',
@@ -43,10 +49,10 @@ export default {
       return $('<div/>').html(value).text() // eslint-disable-line no-undef
     },
     distanceInWordsToNow (date) {
-      return distanceInWordsToNow(date, { locale: de, addSuffix: true })
+      return distanceInWordsToNow(date, { locale: window.locales[this.$i18n.locale], addSuffix: true })
     },
     formatEventDate (date) {
-      return format(date, 'DD MMMM HH:mm', { locale: de })
+      return format(date, 'DD MMMM HH:mm', { locale: window.locales[this.$i18n.locale] })
     }
   }
 }
