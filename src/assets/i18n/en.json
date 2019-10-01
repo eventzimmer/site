@@ -1,0 +1,15 @@
+{
+    "msg": {
+        "page_wakeup": "Page is still sleeping 💤. Give us a moment to wake up.",
+        "events_in": "Events in",
+        "cities": "Cities",
+        "select_categories": "Select categories",
+        "categories": "Categories",
+        "more_less": "More | Less",
+        "timespan": "Set time span",
+        "imprint": "Imprint",
+        "privacy": "Privacy",
+        "file_imprint": "imprint.html",
+        "file_privacy": "privacy.html"
+    }
+}
