@@ -44,3 +44,8 @@ On the upside you can test your pull request right from GitHub, without further 
 
 You may have noticed the `VUE_APP_ENDPOINT` environment variable. This instructs `site` to load events from the given endpoint.
 The default for this variable is `localhost:3000`. In order to use the local backend, please have a look at the [schema manual](https://github.com/eventzimmer/schema/blob/master/SETUP.md), in order to set it up.
+
+### Running eslint
+
+To check linting errors you have to execute the following command:
+`npx standard`

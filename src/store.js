@@ -70,6 +70,7 @@ export default new Vuex.Store({
   },
   actions: {
     fetchEvents (context) {
+      // eslint-disable-next-line no-undef
       return fetch(`${ENDPOINT}/rpc/events_by_radius?${new URLSearchParams({
         latitude: context.state.location.latitude,
         longitude: context.state.location.longitude,
@@ -86,13 +87,13 @@ export default new Vuex.Store({
   },
   getters: {
     nextMonthEvents (state, getters) {
-      let nextMonth = getMonth(addMonths(new Date(), 1))
+      const nextMonth = getMonth(addMonths(new Date(), 1))
       return getters.eventsBySelectedCategories.filter((e) => getMonth(e.starts_at) === nextMonth)
     },
     currentMonthEvents (state, getters) {
-      let today = new Date()
-      let currentDay = getDate(today)
-      let currentMonth = getMonth(today)
+      const today = new Date()
+      const currentDay = getDate(today)
+      const currentMonth = getMonth(today)
       return getters.eventsBySelectedCategories.filter((e) => (getMonth(e.starts_at) === currentMonth) && (getDate(e.starts_at) >= currentDay) && ((getDate(e.starts_at) === currentDay) ? (today.getHours() - e.starts_at.getHours() <= PAST_HOUR_LIMIT) : true))
     },
     eventsBySelectedCategories (state, getters) {
