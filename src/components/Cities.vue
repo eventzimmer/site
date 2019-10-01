@@ -1,6 +1,6 @@
 <template>
   <select class="custom-select" v-model="city" id="citySelect" :disabled="loading">
-    <label for="citySelect">Städte</label>
+    <label for="citySelect">{{ $t("msg.cities") }}</label>
     <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
   </select>
 </template>

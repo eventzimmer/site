@@ -14,7 +14,7 @@
         class="custom-select"
         v-bind="inputProps"
         v-on="inputEvents"
-        placeholder="Zeitraum wählen"
+        :placeholder="$t('msg.timespan')"
         readonly
       >
       </v-date-picker>
