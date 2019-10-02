@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added eslint Rules
+- Deactivate "no-console" command
+- Added "node: true" to remove the linting errors
+
 ## Added eslint
 - Installed eslint dependencies
 - Removed linting errors
