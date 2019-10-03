@@ -5,17 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
-## Added eslint Rules
+### Added
 - Deactivate "no-console" command
 - Added "node: true" to remove the linting errors
-
-## Added eslint
 - Installed eslint dependencies
 - Removed linting errors
-
-### Added
 - Added pull request template
+- Added i18n for english
 
 ### Fixed
 - Only display the read-more button if there is actually more text
