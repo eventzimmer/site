@@ -123,9 +123,6 @@ export default new Vuex.Store({
     },
     categories () {
       return new Set(Object.values(CATEGORIES_PER_LOCATION).reduce((acc, val) => acc.concat(val), [])) // NOTE: This can be replaced with Array.flat
-    },
-    lang() {
-        return state.lang;
     }
   },
   modules: {
