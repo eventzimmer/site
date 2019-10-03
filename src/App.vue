@@ -2,12 +2,6 @@
   <div id="app">
     <h3 class="mt-5">eventzimmer</h3>
 
-	<div class="locale-changer">
-   <select v-model="$i18n.locale"  @change="onChange($event)">
-	 <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
-   </select>
- </div>
-
     <button type="button" @click="backToTop" id="back-to-top" class="btn btn-secondary btn-back-to-top fixed-bottom mb-2" style="display: none"><i class="fas fa-angle-up"></i></button>
     <div class="row mb-1 mt-1">
       <div class="col-sm"></div>
@@ -22,6 +16,11 @@
       <div class="col-sm-2 col-md-2">
         <cities></cities>
       </div>
+	  <div class="locale-changer col-sm-2 col-md-2">
+		  <select v-model="$i18n.locale" class="custom-select" @change="onChange($event)">
+		   <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
+		  </select>
+	  </div>
     </div>
     <events></events>
 
