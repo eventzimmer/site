@@ -58,7 +58,8 @@ export default new Vuex.Store({
       latitude: 48.52,
       longitude: 9.05556
     },
-    events: []
+    events: [],
+    lang: 'de'
   },
   mutations: {
     changeEvents (state, events) {
@@ -66,6 +67,9 @@ export default new Vuex.Store({
     },
     changeLocation (state, location) {
       state.location = location
+    },
+    changeLang (state, lang) {
+      state.lang = lang
     }
   },
   actions: {
@@ -120,6 +124,9 @@ export default new Vuex.Store({
     },
     categories () {
       return new Set(Object.values(CATEGORIES_PER_LOCATION).reduce((acc, val) => acc.concat(val), [])) // NOTE: This can be replaced with Array.flat
+    },
+    lang() {
+        return state.lang;
     }
   },
   modules: {
@@ -128,7 +135,7 @@ export default new Vuex.Store({
   plugins: [
     createPersistedState({
       key: 'eventzimmer',
-      paths: ['location', 'selection'],
+      paths: ['location', 'selection', 'lang'],
       filter: (mutation) => !['changeEvents'].includes(mutation.type)
     })
   ]

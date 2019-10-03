@@ -36,7 +36,7 @@ import Cities from '@/components/Cities'
 import Categories from '@/components/Categories'
 import DateRange from '@/components/DateRange'
 import Footer from '@/components/Footer'
-import VueCookies from 'vue-cookies'
+import store from './store'
 
 export default {
   name: 'app',
@@ -61,7 +61,7 @@ export default {
       window.scrollTo(0, 0)
     },
 	onChange(event){
-		VueCookies.set('lang', event.target.value);
+		this.$store.commit("changeLang",event.target.value);
 	}
   },
   name: 'locale-changer',
