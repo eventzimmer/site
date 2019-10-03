@@ -26,7 +26,8 @@ const selection = {
   state: {
     categories: [],
     start: null,
-    end: null
+    end: null,
+    language: 'de'
   },
   getters: {
     range (state) {
@@ -47,6 +48,9 @@ const selection = {
       } else {
         state.start = state.end = null
       }
+    },
+    changeLanguage (state, language) {
+      state.language = language
     }
   }
 }
@@ -58,8 +62,7 @@ export default new Vuex.Store({
       latitude: 48.52,
       longitude: 9.05556
     },
-    events: [],
-    lang: 'de'
+    events: []
   },
   mutations: {
     changeEvents (state, events) {
@@ -67,9 +70,6 @@ export default new Vuex.Store({
     },
     changeLocation (state, location) {
       state.location = location
-    },
-    changeLang (state, lang) {
-      state.lang = lang
     }
   },
   actions: {
@@ -132,7 +132,7 @@ export default new Vuex.Store({
   plugins: [
     createPersistedState({
       key: 'eventzimmer',
-      paths: ['location', 'selection', 'lang'],
+      paths: ['location', 'selection'],
       filter: (mutation) => !['changeEvents'].includes(mutation.type)
     })
   ]

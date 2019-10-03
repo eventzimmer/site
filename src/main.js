@@ -12,14 +12,13 @@ Vue.use(VCalendar)
 Vue.use(VueI18n)
 Vue.config.productionTip = false
 
-const messages = {
-  en: en,
-  de: de
-}
-
 const i18n = new VueI18n({
-  locale: store.state.lang,
-  messages,
+  locale: store.state.selection.language,
+  fallbackLocale: 'en',
+  messages: {
+    en: en,
+    de: de
+  }
 })
 
 new Vue({
