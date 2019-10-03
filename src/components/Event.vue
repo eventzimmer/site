@@ -1,5 +1,5 @@
 <template>
-  <div class="card mb-1">
+  <div class="card mb-1" :key="$store.state.selection.locale">
     <div class="card-body">
       <a :href="event.url" class="card-link" target="_blank" rel="noopener">
         <h6 class="card-subtitle mb-1 text-muted">
@@ -19,16 +19,11 @@
 
 <script>
 import { format, distanceInWordsToNow } from 'date-fns'
-import de from 'date-fns/locale/de'
-import en from 'date-fns/locale/en'
-
-window.locales = {
-	de,
-	en
-}
+import LocaleMixin from '@/mixins/LocaleMixin'
 
 export default {
   name: 'Event',
+  mixins: [ LocaleMixin ],
   data () {
     return {
       collapsed: true
@@ -49,10 +44,12 @@ export default {
       return $('<div/>').html(value).text() // eslint-disable-line no-undef
     },
     distanceInWordsToNow (date) {
-      return distanceInWordsToNow(date, { locale: window.locales[this.$i18n.locale], addSuffix: true })
+      const locale = this.dateLocale()
+      return distanceInWordsToNow(date, { locale: locale, addSuffix: true })
     },
     formatEventDate (date) {
-      return format(date, 'DD MMMM HH:mm', { locale: window.locales[this.$i18n.locale] })
+      const locale = this.dateLocale()
+      return format(date, 'DD MMMM HH:mm', { locale: locale })
     }
   }
 }

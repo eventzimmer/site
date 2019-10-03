@@ -12,17 +12,13 @@
 
 <script>
 import { addMonths, format } from 'date-fns'
-import de from 'date-fns/locale/de'
-import en from 'date-fns/locale/en'
 import Event from '@/components/Event'
+import LocaleMixin from '@/mixins/LocaleMixin'
 
-window.locales = {
-	de,
-	en
-}
 
 export default {
   name: 'Events',
+  mixins: [ LocaleMixin ],
   components: {
     Event
   },
@@ -42,7 +38,8 @@ export default {
       return addMonths(new Date(), 1)
     },
     formatMonth (date) {
-      return format(date, 'MMMM', { locale: window.locales[this.$i18n.locale] })
+      const locale = this.dateLocale()
+      return format(date, 'MMMM', { locale: locale })
     }
   }
 }

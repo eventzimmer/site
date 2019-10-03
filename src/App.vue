@@ -16,16 +16,14 @@
       <div class="col-sm-2 col-md-2">
         <cities></cities>
       </div>
-	  <div class="locale-changer col-sm-2 col-md-2">
-		  <select v-model="$i18n.locale" class="custom-select" @change="onChange($event)">
-		   <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
-		  </select>
-	  </div>
-    </div>
+      <div class="col-sm-1 col-md-1">
+        <select class="custom-select" @change="updateLanguage">
+          <option v-for="(language) in languages" :key="language" :value="language" :selected="$store.state.selection.language === language">{{ language }}</option>
+        </select>
+        </div>
+      </div>
     <events></events>
-
-
-  	<Footer class="footer mt-auto py-3"></Footer>
+    <Footer class="footer mt-auto py-3"></Footer>
   </div>
 </template>
 
@@ -35,7 +33,6 @@ import Cities from '@/components/Cities'
 import Categories from '@/components/Categories'
 import DateRange from '@/components/DateRange'
 import Footer from '@/components/Footer'
-import store from './store'
 
 export default {
   name: 'app',
@@ -44,7 +41,7 @@ export default {
     Cities,
     Categories,
     DateRange,
-	Footer
+    Footer
   },
   mounted () {
     window.onscroll = () => {
@@ -56,17 +53,19 @@ export default {
     }
   },
   methods: {
+    updateLanguage (event) {
+      const language = event.target.value
+      this.$store.commit('changeLanguage', language)
+      this.$i18n.locale = language
+    },
     backToTop () {
       window.scrollTo(0, 0)
-    },
-	onChange(event){
-		this.$store.commit("changeLang",event.target.value);
-	}
+    }
   },
-  name: 'locale-changer',
   data () {
-
-    return { langs: ['de', 'en'] }
+    return {
+      languages: ['de', 'en']
+    }
   }
 }
 </script>
