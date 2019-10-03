@@ -16,12 +16,7 @@
       <div class="col-sm-2 col-md-2">
         <cities></cities>
       </div>
-      <div class="col-sm-1 col-md-1">
-        <select class="custom-select" @change="updateLanguage">
-          <option v-for="(language) in languages" :key="language" :value="language" :selected="$store.state.selection.language === language">{{ language }}</option>
-        </select>
-        </div>
-      </div>
+    </div>
     <events></events>
     <Footer class="footer mt-auto py-3"></Footer>
   </div>
@@ -60,11 +55,6 @@ export default {
     },
     backToTop () {
       window.scrollTo(0, 0)
-    }
-  },
-  data () {
-    return {
-      languages: ['de', 'en']
     }
   }
 }
