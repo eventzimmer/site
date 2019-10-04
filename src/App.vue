@@ -64,6 +64,7 @@ export default {
 @media (max-width: 767.98px) {
   .btn-back-to-top {
     left: 85%;
+    z-index: 100;
   }
 }
 
