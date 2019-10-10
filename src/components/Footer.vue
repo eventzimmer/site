@@ -5,7 +5,8 @@
       <span class="text-dark">
       <a href="impressum.html" class="text-dark">{{ $t("msg.imprint") }}</a> |
       <a href="datenschutz.html" class="text-dark">{{ $t("msg.privacy") }}</a> |
-      <a href="https://www.instagram.com/eventzimmer_tuebingen/" aria-label="eventzimmer Instagram profile"><i class="fab fa-instagram text-dark"></i></a>
+      <a href="https://www.instagram.com/eventzimmer_tuebingen/" aria-label="eventzimmer Instagram profile"><i class="fab fa-instagram text-dark"></i></a> |
+      <a href="https://twitter.com/eventzimmer" aria-label="eventzimmer Twitter profile"><i class="fab fa-twitter text-dark"></i></a>
       </span>
       </div>
       <div class="form-group col-md-2">
