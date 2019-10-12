@@ -21,13 +21,13 @@ const CATEGORIES_PER_LOCATION = LOCATIONS_ANNOTATED
     accumulator[location.name] = location.tags
     return accumulator
   }, {})
-console.log(navigator.language);
+  
 const selection = {
   state: {
     categories: [],
     start: null,
     end: null,
-    language: navigator.language.substring(0, 2) || 'de'
+    language: null
   },
   getters: {
     range (state) {
