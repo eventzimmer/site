@@ -11,9 +11,8 @@ import en from './assets/i18n/en.json'
 Vue.use(VCalendar)
 Vue.use(VueI18n)
 Vue.config.productionTip = false
-
 const i18n = new VueI18n({
-  locale: store.state.selection.language,
+  locale: store.state.selection.language ? store.state.selection.language : navigator.language.substring(0, 2) || 'de',
   fallbackLocale: 'en',
   messages: {
     en: en,
