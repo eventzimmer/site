@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Only display the read-more button if there is actually more text
 
+### Changed
+- Replace Travis with GitHub actions
 
 ## [0.1.0] - 2019-08-01
 ### Added
