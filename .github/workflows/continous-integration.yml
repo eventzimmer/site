@@ -1,0 +1,16 @@
+name: Continous Integration
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: npm audit
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test:unit
