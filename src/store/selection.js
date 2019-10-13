@@ -3,7 +3,7 @@ const selection = {
   categories: [],
   start: null,
   end: null,
-  language: 'de'
+  language: null
   },
   getters: {
     range (state) {
