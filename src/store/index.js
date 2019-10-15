@@ -79,7 +79,7 @@ export default new Vuex.Store({
     },
     eventsWithCategories (state, getters) {
       return getters.eventsByRange.map((event) => {
-        event.categories = CATEGORIES_PER_LOCATION[event.location.name]
+        event.categories = CATEGORIES_PER_LOCATION[event.location.name] || []
         return event
       })
     },

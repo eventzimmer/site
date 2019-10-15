@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added i18n for english
 
 ### Fixed
+- Properly calculate categories even for locations without categories
 - Only display the read-more button if there is actually more text
 
 ### Changed
