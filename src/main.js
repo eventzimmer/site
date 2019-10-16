@@ -15,8 +15,8 @@ const i18n = new VueI18n({
   locale: store.state.selection.language ? store.state.selection.language : navigator.language.substring(0, 2) || 'de',
   fallbackLocale: 'en',
   messages: {
-    en: en,
-    de: de
+    en,
+    de,
   }
 })
 
