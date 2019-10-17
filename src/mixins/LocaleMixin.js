@@ -5,8 +5,8 @@ export default {
   data () {
     return {
       dateLocales: {
-        de: de,
-        en: en
+        de,
+        en,
       }
     }
   },
