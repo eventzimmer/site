@@ -79,7 +79,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added linting and tests and Travis
 - Deployed via Netlify
 
+## [0.1.0] - 2019-09-19
 ### Added
 -  Rearranged the data and event time
 -  Allowed 30 char values to appear
--  Included an <hr> tage for better organization   
+-  Included an ```<hr>``` tage for better organization   
