@@ -1,8 +1,8 @@
 <template>
   <div v-if="!loading">
-    <p class="lead" v-if="$store.getters.currentMonthEvents.length">{{ $t("msg.events_in") }} {{ formatMonth(new Date()) }}</p>
+    <h3 class="lead" v-if="$store.getters.currentMonthEvents.length">{{ $t("msg.events_in") }} {{ formatMonth(new Date()) }}</h3>
     <event :event="event" v-for="event in $store.getters.currentMonthEvents" v-bind:key="event.url"></event>
-    <p class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">{{ $t("msg.events_in") }} {{ formatMonth(nextMonth()) }}</p>
+    <h3 class="lead mt-3" v-if="$store.getters.nextMonthEvents.length">{{ $t("msg.events_in") }} {{ formatMonth(nextMonth()) }}</h3>
     <event :event="event" v-for="event in $store.getters.nextMonthEvents" v-bind:key="event.url"></event>
   </div>
   <div v-else>

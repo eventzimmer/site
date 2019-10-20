@@ -2,9 +2,9 @@
   <div class="card mb-1" :key="$store.state.selection.locale">
     <div class="card-body">
       <a :href="event.url" class="card-link" target="_blank" rel="noopener">
-        <h6 class="card-subtitle mb-1 text-muted">
+        <h4 class="card-subtitle mb-1 text-muted">
           {{ event.name }}
-        </h6>
+        </h4>
         <span class="badge badge-pill badge-secondary ml-1 overflow-auto">{{ distanceInWordsToNow(event.starts_at) }}</span>
         <span class="badge badge-pill badge-secondary ml-1 overflow-auto">{{ formatEventDate(event.starts_at) }}</span>
         <span class="badge badge-pill badge-secondary ml-1 d-inline-block text-truncate" style="max-width: 100%">{{ event.location.name }}</span>

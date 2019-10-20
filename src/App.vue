@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <h3 class="mt-5">eventzimmer</h3>
+    <h1 class="mt-5">eventzimmer</h1>
+	<h2>{{ $t("msg.slogan") }}</h2>
+	<p>{{ $t("msg.introText") }}</p>
 
     <button type="button" @click="backToTop" id="back-to-top" class="btn btn-secondary btn-back-to-top fixed-bottom mb-2" style="display: none"><i class="fas fa-angle-up"></i></button>
     <div class="row mb-1 mt-1">
