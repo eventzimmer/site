@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed linting errors
 - Added pull request template
 - Added i18n for english
+-  Rearranged the data and event time
+-  Allowed 30 char values to appear
+-  Included an ```<hr>``` tage for better organization   
+
 
 ### Fixed
 - Properly calculate categories even for locations without categories
@@ -78,9 +82,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added impress and privacy as static html pages
 - Added linting and tests and Travis
 - Deployed via Netlify
-
-## [0.1.0] - 2019-09-19
-### Added
--  Rearranged the data and event time
--  Allowed 30 char values to appear
--  Included an ```<hr>``` tage for better organization   
