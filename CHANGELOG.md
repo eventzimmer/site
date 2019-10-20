@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- SEO and W3C update
 - Added Twitter to footer
 - Deactivate "no-console" command
 - Added "node: true" to remove the linting errors
@@ -78,5 +79,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added impress and privacy as static html pages
 - Added linting and tests and Travis
 - Deployed via Netlify
-
-
