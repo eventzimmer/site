@@ -1,9 +1,10 @@
 <template>
-  <div class="card mb-1">
+  <div class="card mb-2">
     <div class="card-body">
       <div class="row no-gutters">
         <div class="col-md-2">
           <h4 class="text-muted overflow-auto">{{ formatEventDate(event.starts_at) }}</h4>
+          <hr class="visible-sm"/>
         </div>
         <div class="col-md-6">
           <h4 class="card-subtitle text-muted">{{ event.name }}</h4>
@@ -11,13 +12,13 @@
         </div>
         <div class="col-md-4">
           <h6>
-            <span class="badge badge-pill badge-secondary ml-1 d-inline-block text-truncate">{{ event.location.name }}</span>
+            <span class="badge badge-pill badge-secondary d-inline-block text-truncate" style="max-width: 100%">{{ event.location.name }}</span>
           </h6>
-          <span class="badge badge-pill badge-secondary ml-1 d-inline-block text-truncate" v-for="category in event.categories" :key="category">{{ category }}</span>
+          <span class="badge badge-pill badge-secondary mr-1 d-inline-block text-truncate" v-for="category in event.categories" :key="category">{{ category }}</span>
         </div>
       </div>
       <div v-if="!collapsed">
-        <hr>
+        <hr/>
         <span v-html="htmlDecode(event.description.substring(0, (collapsed) ? 30 : event.description.length))"></span>
       </div>
     </div>
