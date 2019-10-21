@@ -7,11 +7,11 @@
       <div class="col-sm"></div>
       <div class="col-sm-3 col-md-2">
         <date-range></date-range>
-        <div class="mt-2 visible-sm"></div>
+        <div class="mt-2 d-md-none"></div>
       </div>
       <div class="col-sm-2 col-md-2">
         <categories></categories>
-        <div class="mt-2 visible-sm"></div>
+        <div class="mt-2 d-md-none"></div>
       </div>
       <div class="col-sm-2 col-md-2">
         <cities></cities>

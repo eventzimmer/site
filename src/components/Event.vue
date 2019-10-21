@@ -4,7 +4,7 @@
       <div class="row no-gutters">
         <div class="col-md-2">
           <h4 class="text-muted overflow-auto">{{ formatEventDate(event.starts_at) }}</h4>
-          <hr class="visible-sm"/>
+          <hr class="d-md-none"/>
         </div>
         <div class="col-md-6">
           <h4 class="card-subtitle text-muted">{{ event.name }}</h4>

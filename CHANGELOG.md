@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.2.0] - 2019-10-21 
 ### Added
 - Added Twitter to footer
 - Deactivate "no-console" command
@@ -13,12 +14,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed linting errors
 - Added pull request template
 - Added i18n for english
--  Rearranged the data and event time
--  Allowed 30 char values to appear
--  Included an ```<hr>``` tage for better organization   
+- Rearranged the data and event time
+- Allowed 30 char values to appear
+- Included an ```<hr>``` tage for better organization   
 
 
 ### Fixed
+- Replaced visible-sm with d-md-none because it is the correct way in BS4
 - Properly calculate categories even for locations without categories
 - Only display the read-more button if there is actually more text
 
