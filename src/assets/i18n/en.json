@@ -1,6 +1,8 @@
 {
     "msg": {
         "page_wakeup": "Page is still sleeping 💤. Give us a moment to wake up.",
+		"slogan": "The place for all events in your area",
+		"introText": "Find events, movies, exhibitions and more in your area.",
         "events_in": "Events in",
         "cities": "Cities",
         "select_categories": "Select categories",

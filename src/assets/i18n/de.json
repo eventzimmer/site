@@ -1,6 +1,8 @@
 {
     "msg": {
         "page_wakeup": "Die Seite schläft gerade noch 💤. Gib uns einen Moment um sie aufzuwecken.",
+        "slogan": "Der Platz für alle Events in deiner Umgebung",
+        "introText": "Finde Events, Vorträge, Filme und viele weitere Ereignisse in deiner Stadt.",
         "events_in": "Veranstaltungen im",
         "cities": "Städte",
         "select_categories": "Kategorie(n) auswählen",

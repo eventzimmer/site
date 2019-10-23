@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- SEO and W3C update
 - Added anonymous events for read more and external links
 - Added getinsights.io - privacy conform analytics
 
