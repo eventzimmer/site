@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - SEO and W3C update
+- Added anonymous events for read more and external links
+- Added getinsights.io - privacy conform analytics
+
+### Removed
+- Removed any occurence of Matomo
+
+## [0.2.0] - 2019-10-21 
+### Added
 - Added Twitter to footer
 - Deactivate "no-console" command
 - Added "node: true" to remove the linting errors
@@ -14,8 +22,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed linting errors
 - Added pull request template
 - Added i18n for english
+- Rearranged the data and event time
+- Allowed 30 char values to appear
+- Included an ```<hr>``` tage for better organization   
+
 
 ### Fixed
+- Replaced visible-sm with d-md-none because it is the correct way in BS4
 - Properly calculate categories even for locations without categories
 - Only display the read-more button if there is actually more text
 

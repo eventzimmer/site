@@ -11,7 +11,7 @@
       </span>
       </div>
       <div class="form-group col-md-2">
-        <div class="mt-2 visible-sm"></div>
+        <div class="mt-2 d-md-none"></div>
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text"><i class="fas fa-language"></i></div>

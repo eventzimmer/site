@@ -1,18 +1,30 @@
 <template>
-  <div class="card mb-1" :key="$store.state.selection.locale">
+  <div class="card mb-2">
     <div class="card-body">
-      <a :href="event.url" class="card-link" target="_blank" rel="noopener">
-        <h4 class="card-subtitle mb-1 text-muted">
-          {{ event.name }}
-        </h4>
-        <span class="badge badge-pill badge-secondary ml-1 overflow-auto">{{ distanceInWordsToNow(event.starts_at) }}</span>
-        <span class="badge badge-pill badge-secondary ml-1 overflow-auto">{{ formatEventDate(event.starts_at) }}</span>
-        <span class="badge badge-pill badge-secondary ml-1 d-inline-block text-truncate" style="max-width: 100%">{{ event.location.name }}</span>
-        <span class="badge badge-pill badge-secondary ml-1 overflow-auto" v-if="event.categories.length === 1">{{ event.categories[0] }}</span>
-        <br/>
-      </a>
-      <span v-html="htmlDecode(event.description.substring(0, (collapsed) ? 200 : event.description.length))"></span>
-      <button type="button" v-if="event.description.length > max" class="btn btn-outline-secondary btn-sm ml-1" @click="collapsed = !collapsed">{{ $tc('msg.more_less', collapsed) }}</button>
+      <div class="row no-gutters">
+        <div class="col-md-2">
+          <h4 class="text-muted overflow-auto">{{ formatEventDate(event.starts_at) }}</h4>
+          <hr class="d-md-none"/>
+        </div>
+        <div class="col-md-6">
+          <h4 class="card-subtitle text-muted">{{ event.name }}</h4>
+          <p>{{ distanceInWordsToNow(event.starts_at ) }}</p>
+        </div>
+        <div class="col-md-4">
+          <h6>
+            <span class="badge badge-pill badge-secondary d-inline-block text-truncate" style="max-width: 100%">{{ event.location.name }}</span>
+          </h6>
+          <span class="badge badge-pill badge-secondary mr-1 d-inline-block text-truncate" v-for="category in event.categories" :key="category">{{ category }}</span>
+        </div>
+      </div>
+      <div v-if="!collapsed">
+        <hr/>
+        <span v-html="htmlDecode(event.description.substring(0, (collapsed) ? 30 : event.description.length))"></span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="button" v-if="event.description.length > max" class="btn btn-outline-secondary btn-sm" @click="readMore()">{{ $tc('msg.more_less', collapsed) }}</button>
+      <a :href="event.url" class="btn btn-outline-secondary btn-sm ml-2" @click="trackExternalLink()" target="_blank" rel="noopener">{{ event.source.aggregator }}</a>
     </div>
   </div>
 </template>
@@ -20,6 +32,7 @@
 <script>
 import { format, distanceInWordsToNow } from 'date-fns'
 import LocaleMixin from '@/mixins/LocaleMixin'
+import { track } from 'insights-js'
 
 export default {
   name: 'Event',
@@ -40,6 +53,25 @@ export default {
     }
   },
   methods: {
+    trackExternalLink () {
+      track({
+        id: 'external-link',
+        parameters: {
+          source: this.event.source.url,
+          url: this.event.url
+        }
+      })
+    },
+    readMore () {
+      this.collapsed = !this.collapsed
+      track({
+        id: 'read-more',
+        parameters: {
+          collapsed: this.collapsed,
+          url: this.event.url
+        }
+      })
+    },
     htmlDecode (value) {
       return $('<div/>').html(value).text() // eslint-disable-line no-undef
     },

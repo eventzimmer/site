@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import VCalendar from 'v-calendar'
+import { init, trackPages } from 'insights-js'
+
 import App from './App.vue'
 import store from './store'
 import './registerServiceWorker'
@@ -19,6 +21,10 @@ const i18n = new VueI18n({
     de,
   }
 })
+
+// Initialize insights
+init('hhLEeFftIFGvLfPJ')
+trackPages()
 
 new Vue({
   store,
