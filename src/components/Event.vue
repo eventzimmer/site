@@ -23,8 +23,8 @@
       </div>
     </div>
     <div class="card-footer">
-      <button type="button" v-if="event.description.length > max" class="btn btn-outline-secondary btn-sm" @click="collapsed = !collapsed">{{ $tc('msg.more_less', collapsed) }}</button>
-      <a :href="event.url" class="btn btn-outline-secondary btn-sm ml-2" target="_blank" rel="noopener">{{ event.source.aggregator }}</a>
+      <button type="button" v-if="event.description.length > max" class="btn btn-outline-secondary btn-sm" @click="readMore()">{{ $tc('msg.more_less', collapsed) }}</button>
+      <a :href="event.url" class="btn btn-outline-secondary btn-sm ml-2" @click="trackExternalLink()" target="_blank" rel="noopener">{{ event.source.aggregator }}</a>
     </div>
   </div>
 </template>
@@ -32,6 +32,7 @@
 <script>
 import { format, distanceInWordsToNow } from 'date-fns'
 import LocaleMixin from '@/mixins/LocaleMixin'
+import { track } from 'insights-js'
 
 export default {
   name: 'Event',
@@ -52,6 +53,25 @@ export default {
     }
   },
   methods: {
+    trackExternalLink () {
+      track({
+        id: 'external-link',
+        parameters: {
+          source: this.event.source.url,
+          url: this.event.url
+        }
+      })
+    },
+    readMore () {
+      this.collapsed = !this.collapsed
+      track({
+        id: 'read-more',
+        parameters: {
+          collapsed: this.collapsed,
+          url: this.event.url
+        }
+      })
+    },
     htmlDecode (value) {
       return $('<div/>').html(value).text() // eslint-disable-line no-undef
     },
