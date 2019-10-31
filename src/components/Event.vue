@@ -25,6 +25,7 @@
     <div class="card-footer">
       <button type="button" v-if="event.description.length > max" class="btn btn-outline-secondary btn-sm" @click="readMore()">{{ $tc('msg.more_less', collapsed) }}</button>
       <a :href="event.url" class="btn btn-outline-secondary btn-sm ml-2" @click="trackExternalLink()" target="_blank" rel="noopener">{{ event.source.aggregator }}</a>
+      <button type="button" v-bind:class="['btn', ($store.getters.bookmarks.has(event.url)) ? 'btn-secondary' : 'btn-outline-secondary', 'btn-sm' ,'ml-2']" @click="bookmark()"><i v-bind:class="[ ($store.getters.bookmarks.has(event.url)) ? 'fas fa-bookmark' : 'far fa-bookmark' ]"></i></button>
     </div>
   </div>
 </template>
@@ -58,6 +59,16 @@ export default {
         id: 'external-link',
         parameters: {
           source: this.event.source.url,
+          url: this.event.url
+        }
+      })
+    },
+    bookmark() {
+      this.$store.commit('bookmarkEvent', this.event.url)
+      track({
+        id: 'bookmark',
+        parameters: {
+          bookmarked: !this.$store.getters.has(this.event.url),
           url: this.event.url
         }
       })
