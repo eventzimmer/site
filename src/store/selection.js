@@ -1,9 +1,10 @@
 const selection = {
   state: {
-  categories: [],
-  start: null,
-  end: null,
-  language: null
+    categories: [],
+    bookmarks: [],
+    start: null,
+    end: null,
+    language: null
   },
   getters: {
     range (state) {
@@ -11,9 +12,20 @@ const selection = {
         start: new Date(state.start),
         end: new Date(state.end)
       } : null
+    },
+    bookmarks (state) {
+      return new Set(state.bookmarks)
     }
   },
   mutations: {
+    bookmarkEvent(state, url) {
+      let bookmark = state.bookmarks.indexOf(url)
+      if (bookmark !== -1) {
+        state.bookmarks.splice(bookmark, 1)
+      } else {
+        state.bookmarks.push(url)
+      }
+    },
     changeCategories (state, categories) {
       state.categories = categories
     },
@@ -28,7 +40,7 @@ const selection = {
     changeLanguage (state, language) {
       state.language = language
     }
-  }
+  },
 }
 
 export default selection;
