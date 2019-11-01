@@ -3,7 +3,6 @@ const selection = {
     categories: [],
     bookmarks: [],
     cities: [],
-    categories: [],
     start: null,
     end: null,
     language: null
