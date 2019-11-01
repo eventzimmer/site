@@ -2,6 +2,8 @@ const selection = {
   state: {
     categories: [],
     bookmarks: [],
+    cities: [],
+    categories: [],
     start: null,
     end: null,
     language: null
@@ -24,6 +26,11 @@ const selection = {
         state.bookmarks.splice(bookmark, 1)
       } else {
         state.bookmarks.push(url)
+      }
+    },
+    addCity (state, city) {
+      if (state.cities.findIndex((c) => c.name === city.name) === -1) {
+        state.cities.push(city)
       }
     },
     changeCategories (state, categories) {

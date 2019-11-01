@@ -2,7 +2,7 @@
   <div class="d-flex">
     <select class="custom-select" v-model="city" id="citySelect" :disabled="loading">
       <label for="citySelect">{{ $t("msg.cities") }}</label>
-      <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
+      <option v-for="city in combined_cities()" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
     </select>
     <button class="btn btn-secondary" @click="locateCity" :disabled="loading"><i class="fas fa-compass"></i></button>
   </div>
@@ -57,7 +57,7 @@ export default {
         const geocoding = await response.json()
         const cityName = geocoding.address.town || geocoding.address.village
         if (this.cities.findIndex((c) => c.name === cityName) === -1) {
-          this.cities.push({
+          this.$store.commit('addCity', {
             name: cityName,
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
@@ -69,6 +69,9 @@ export default {
       } finally {
         this.loading = false
       }
+    },
+    combined_cities () {
+      return this.cities.concat(this.$store.state.selection.cities)
     }
   },
   computed: {
