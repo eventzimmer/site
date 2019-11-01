@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Make it possible to bookmark events
+- Make it possible to change city based on geolocation
 - Added anonymous events for read more and external links
 - Added getinsights.io - privacy conform analytics
 

@@ -1,8 +1,11 @@
 <template>
-  <select class="custom-select" v-model="city" id="citySelect" :disabled="loading">
-    <label for="citySelect">{{ $t("msg.cities") }}</label>
-    <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
-  </select>
+  <div class="d-flex">
+    <select class="custom-select" v-model="city" id="citySelect" :disabled="loading">
+      <label for="citySelect">{{ $t("msg.cities") }}</label>
+      <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
+    </select>
+    <button class="btn btn-secondary" @click="locateCity"><i class="fas fa-compass"></i></button>
+  </div>
 </template>
 
 <script>
@@ -33,6 +36,33 @@ export default {
           longitude: 8.8557862
         }
       ]
+    }
+  },
+  methods: {
+    async locateCity () {
+      const getPosition = (options) => {
+        return new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject, options)
+        })
+      }
+
+      try {
+        const position = await getPosition()
+        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?${new URLSearchParams({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+          format: 'json'
+        }).toString()}`)
+        const geocoding = await response.json()
+        this.cities.push({
+          name: geocoding.address.town || geocoding.address.village,
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        })
+        this.city = geocoding.address.town || geocoding.address.village
+      } catch (err) {
+        console.error(err)
+      }
     }
   },
   computed: {
