@@ -4,7 +4,7 @@
       <label for="citySelect">{{ $t("msg.cities") }}</label>
       <option v-for="city in cities" :value="city.name" v-bind:key="city.name">{{ city.name }}</option>
     </select>
-    <button class="btn btn-secondary" @click="locateCity"><i class="fas fa-compass"></i></button>
+    <button class="btn btn-secondary" @click="locateCity" :disabled="loading"><i class="fas fa-compass"></i></button>
   </div>
 </template>
 
@@ -46,6 +46,7 @@ export default {
         })
       }
 
+      this.loading = true
       try {
         const position = await getPosition()
         const response = await fetch(`https://nominatim.openstreetmap.org/reverse?${new URLSearchParams({
@@ -54,14 +55,19 @@ export default {
           format: 'json'
         }).toString()}`)
         const geocoding = await response.json()
-        this.cities.push({
-          name: geocoding.address.town || geocoding.address.village,
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        })
-        this.city = geocoding.address.town || geocoding.address.village
+        const cityName = geocoding.address.town || geocoding.address.village
+        if (this.cities.findIndex((c) => c.name === cityName) === -1) {
+          this.cities.push({
+            name: cityName,
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          })
+        }
+        this.city = cityName
       } catch (err) {
         console.error(err)
+      } finally {
+        this.loading = false
       }
     }
   },
@@ -70,18 +76,15 @@ export default {
       get () {
         return this.$store.state.location.name
       },
-      set (cityName) {
-        let vm = this
-        let location = vm.cities.find((c) => c.name === cityName)
-        vm.loading = true
-        vm.$store.commit('changeLocation', location)
-        vm.$store.dispatch('fetchEvents')
-          .then(() => {
-            vm.loading = false
-          }).catch((err) => {
-            console.error(err)
-            vm.loading = false
-          })
+      async set (cityName) {
+        const location = this.cities.find((c) => c.name === cityName)
+        this.loading = true
+        this.$store.commit('changeLocation', location)
+        try {
+          await this.$store.dispatch('fetchEvents')
+        } finally {
+          this.loading = false
+        }
       }
     }
   }
