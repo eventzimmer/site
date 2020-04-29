@@ -45,7 +45,7 @@ export default new Vuex.Store({
       return fetch(`${ENDPOINT}/rpc/events_by_radius?${new URLSearchParams({
         latitude: context.state.location.latitude,
         longitude: context.state.location.longitude,
-        select: 'name,url,description,created_at,starts_at,location(name),source(url,aggregator)',
+        select: 'name,url,description,created_at,starts_at,location(*),source(*)',
         order: 'starts_at'
       })}`, {
         'Content-Type': 'application/json'
