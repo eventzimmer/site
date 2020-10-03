@@ -17,6 +17,7 @@
         <cities></cities>
       </div>
     </div>
+    <p class="lead"><b>eventzimmer will go into read-only mode starting November 11 2020</b></p>
     <events></events>
     <Footer class="footer mt-auto py-3"></Footer>
   </div>
